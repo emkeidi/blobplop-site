@@ -1,30 +1,69 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import SpaceLayout from '../layouts/SpaceLayout.astro';
+import Card from '../components/Card.astro'
+import SpaceCarousel from '../components/SpaceCarousel.svelte';
 const NASA_API_KEY = import.meta.env.NASA_API_KEY;
 
-type Image = {
-  title: string;
-  explanation: string;
-  media_type: 'image' | 'video';
-  /** Date published in YYYY-MM-DD format */
-  date: string;
-  /** Video URL or standard resolution image URL */
-  url: string;
-  /** High-res image URL (for media_type: 'image' only) */
-  hdurl?: string;
-  /** API version. Defaults to "v1" */
-  service_version: string;
-}
 
 const images = await fetch(
   `https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}&count=10`
 ).then(res => res.json());
 
-console.log(images)
+// type Image = {
+//   title: string;
+//   explanation: string;
+//   media_type: 'image' | 'video';
+//   /** Date published in YYYY-MM-DD format */
+//   date: string;
+//   /** Video URL or standard resolution image URL */
+//   url: string;
+//   /** High-res image URL (for media_type: 'image' only) */
+//   hdurl?: string;
+//   /** API version. Defaults to "v1" */
+//   service_version: string;
+// }
 ---
 
-<Layout title="space-tour">
+<SpaceLayout title="gaze upon space!">
   <main>
+    <h1>Welcome to <span class="text-gradient">Star Gazers</span></h1>
+    <SpaceCarousel client:idle {images} />
 
+    <p>This carousel pulls 10 random images from NASA, courtesy of their <a href="https://api.nasa.gov/">generous API</a>. This page is the result of following <a href="https://prismic.io/blog/astro-js-tutorial#start">Prismic guide</a>.</p>
+    <p>When you click 'Learn more' you will be taken to a page with a description of the media. When you return to this page, the carousel will be on the the first slide again. You can refresh the page to see 10 more random images.</p>
+    <p><a href="/">Back to homepage.</a></p>
   </main>
-</Layout>
+</SpaceLayout>
+
+<style>
+	:root {
+		--astro-gradient: linear-gradient(0deg, #4f39fa, #da62c4);
+	}
+	h1 {
+		margin: 2rem 0;
+	}
+	main {
+		margin: auto;
+		padding: 1em;
+		max-width: 60ch;
+	}
+	.text-gradient {
+		font-weight: 900;
+		background-image: var(--astro-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 100% 200%;
+		background-position-y: 100%;
+		border-radius: 0.4rem;
+		animation: pulse 4s ease-in-out infinite;
+	}
+	@keyframes pulse {
+		0%,
+		100% {
+			background-position-y: 0%;
+		}
+		50% {
+			background-position-y: 80%;
+		}
+	}
+</style>

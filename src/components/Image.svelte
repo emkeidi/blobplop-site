@@ -1,4 +1,3 @@
-<!--src/components/Image.svelte-->
 <script>
   export let title = '';
   export let url = '';
