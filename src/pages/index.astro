@@ -1,20 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+
 ---
 
-<Layout title="matt.getBlog()">
+<Layout title="matt.getAstro()">
 	<main>
-		<h1>matt<span class="text-gradient">.getBlog()</span></h1>
+		<h1>matt<span class="text-gradient">.getAstro()</span></h1>
 		<p class="instructions">
 			☕ learning full stack  📚 eat your broccoli 🥦 keep building <br />
 			Learning from the <a href="https://docs.astro.build/" target="_blank">Astro docs</a>.
 		</p>
 		<ul role="list" class="link-card-grid">
 			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
+				href="/nasa/"
+				title="Space"
+				body="Take a look at space"
 			/>
 			<Card
 				href="https://astro.build/integrations/"
