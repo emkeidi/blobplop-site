@@ -29,10 +29,10 @@
   </div>
   <div class="images">
     {#each images as image, idx}
-        {#if idx === currentIdx}
+      {#if idx === currentIdx}
       <div class="image-container" transition:fly={{ y:20 }}>
         <Image title={image.title} url={image.url} alt={image.explanation} media_type={image.media_type}>
-          <a slot="figcaption" href={`/${image.date}`}>Learn more</a>
+          <a slot="figcaption" href={`/apod/${image.date}`}>Learn more</a>
         </Image>
       </div>
       {/if}
