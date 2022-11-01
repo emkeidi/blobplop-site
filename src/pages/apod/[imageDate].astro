@@ -34,8 +34,8 @@ const { imageDate } = Astro.params;
       <p class='date'>
       {new Date(image.date).toLocaleDateString()}
       </p>
-      {image.explanation}
-      <p></p>
+      
+      <p>{image.explanation}</p>
     </div>
     </Image>
   </main>
@@ -46,6 +46,7 @@ const { imageDate } = Astro.params;
     margin: 2rem 0;
   }
 
+
   main {
     margin: auto;
     padding: 1em;
@@ -54,6 +55,6 @@ const { imageDate } = Astro.params;
 
   .date {
     text-align: right;
-    font-weight: right;
+    font-weight: 500;
   }
 </style>
