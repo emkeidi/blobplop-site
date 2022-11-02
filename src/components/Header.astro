@@ -1,5 +1,5 @@
 ---
-import logo from '../images/logo.svg'
+import logo from '../images/alien.png'
 ---
 
 <header class="header">
@@ -21,8 +21,17 @@ import logo from '../images/logo.svg'
 
 <style>
   .header {
-  height: 70px;
-  background: var(--color-primary);
+  height: 120px;
+  background: hsl(0 0% 0%/ 0.7);
+}
+
+@supports(backdrop-filter: blur(0.3rem)) {
+  .header {
+  background: hsl(0 0% 100%/ 0.1);
+  backdrop-filter: blur(0.175rem);
+
+
+  }
 }
 .header .container {
   height: 100%;
@@ -32,7 +41,7 @@ import logo from '../images/logo.svg'
   padding: 0 20px;
 }
 .header img {
-  height: 35px;
+  height: 75px;
   vertical-align: middle;
 }
 .header nav ul {
