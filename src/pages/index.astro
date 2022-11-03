@@ -1,12 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import Showcase from '../components/Showcase.astro';
 
 ---
 
-<Layout title="matt.getAstro()">
-	<main>
-		<h1>matt<span class="text-gradient">.getAstro()</span></h1>
+<Layout title="matt.getBlog">
+	<Showcase />
+	<main>	
+		<h1>matt<span class="text-gradient">.getBlog</span></h1>
 		<p class="instructions">
 			☕ learning full stack  📚 eat your broccoli 🥦 keep building <br />
 			Learning from the <a href="https://docs.astro.build/" target="_blank">Astro docs</a>.
@@ -46,6 +48,7 @@ import Card from '../components/Card.astro';
 		font-size: 3rem;
 		font-weight: 800;
 		margin: 0;
+		color: gainsboro;
 	}
 	.text-gradient {
 		background-image: var(--accent-gradient);

@@ -2,10 +2,10 @@
 export interface Props {
 	title: string;
 	body: string;
-	href: string;
+	href?: string;
 }
 
-const { href, title, body } = Astro.props;
+const { href, title, body, dark } = Astro.props;
 ---
 
 <li class="link-card">
@@ -20,6 +20,7 @@ const { href, title, body } = Astro.props;
 	</a>
 </li>
 <style>
+
 	.link-card {
 		list-style: none;
 		display: flex;
@@ -59,4 +60,8 @@ const { href, title, body } = Astro.props;
 	.link-card:is(:hover, :focus-within) h2 {
 		color: rgb(var(--accent));
 	}
+
+
+
+
 </style>

@@ -17,5 +17,9 @@
     "astro": "^1.6.0",
     "svelte": "^3.52.0",
     "svelte-navigator": "^3.2.2"
+  },
+  "devDependencies": {
+    "prettier": "^2.7.1",
+    "prettier-plugin-astro": "^0.7.0"
   }
 }

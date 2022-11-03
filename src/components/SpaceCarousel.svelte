@@ -39,51 +39,51 @@
     {/each}
   </div>
   
-  <style>
-    .buttons {
-      display: grid;
-      grid-template-columns: 3rem 1fr 3rem;
-    }
-    
-    .images {
-      display: grid;
-      width: 100%;
-    } 
-  
-    /* Display every image on top of each other */
-    /* This will help us cross-fade between images! */
-    .image-container {
-      grid-area: 1 / -1;
-    }
-  
-    button {
-      background: none;
-      border: none;
-      color: var(--color-text-secondary);
-      border-radius: 0.3rem;
-      transition: background-color 0.2s;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    
-    button:hover, button:focus-visible {
-      background-color: var(--grey-2);
-    }
-  
-    button svg {
-      width: 100%;
-      height: auto;
-    }
-  
-    h2 {
-      text-align: center;
-      font-size: var(--font-size-base);
-    }
-  
-    a, a:visited {
-      display: flex;
-      justify-content: center;
-      padding: 0.5rem;
-    }
-  </style>
+<style>
+  .buttons {
+    display: grid;
+    grid-template-columns: 3rem 1fr 3rem;
+  }
+
+  .images {
+    display: grid;
+    width: 100%;
+  } 
+
+  /* Display every image on top of each other */
+  /* This will help us cross-fade between images! */
+  .image-container {
+    grid-area: 1 / -1;
+  }
+
+  button {
+    background: none;
+    border: none;
+    color: var(--color-text-secondary);
+    border-radius: 0.3rem;
+    transition: background-color 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  button:hover, button:focus-visible {
+    background-color: var(--grey-2);
+  }
+
+  button svg {
+    width: 100%;
+    height: auto;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: var(--font-size-base);
+  }
+
+  a, a:visited {
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+  }
+</style>
