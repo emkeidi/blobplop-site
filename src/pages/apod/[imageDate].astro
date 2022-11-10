@@ -1,7 +1,6 @@
 ---
 import Image from '../../components/Image.svelte';
 import SpaceLayout from '../../layouts/SpaceLayout.astro';
-import Button from '../../components/Button.astro';
 const NASA_API_KEY = import.meta.env.NASA_API_KEY;
 
 type Image = {
@@ -16,27 +15,24 @@ type Image = {
   hdurl?: string;
   /** API version. Defaults to "v1" */
   service_version: string;
-}
+};
 
 const { imageDate } = Astro.params;
 
- const image = await fetch(
-   `https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}&date=${imageDate}`
- ).then(res => res.json());
-
+const image = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}&date=${imageDate}`).then((res) => res.json());
 ---
 
 <SpaceLayout title={new Date(imageDate).toLocaleDateString()}>
   <main>
     <h1>{image.title}</h1>
-   <Image title={image.title} url={image.url} alt={image.explanation} media_type={image.media_type}>
-    <div slot="figcaption">
-      <p class='date'>
-      {new Date(image.date).toLocaleDateString()}
-      </p>
-      
-      <p>{image.explanation}</p>
-    </div>
+    <Image title={image.title} url={image.url} alt={image.explanation} media_type={image.media_type}>
+      <div slot='figcaption'>
+        <p class='date'>
+          {new Date(image.date).toLocaleDateString()}
+        </p>
+
+        <p>{image.explanation}</p>
+      </div>
     </Image>
   </main>
 </SpaceLayout>
@@ -45,7 +41,6 @@ const { imageDate } = Astro.params;
   h1 {
     margin: 2rem 0;
   }
-
 
   main {
     margin: auto;
