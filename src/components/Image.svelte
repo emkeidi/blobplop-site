@@ -7,13 +7,14 @@
 
 <figure>
   {#if media_type === 'image'}
-    <img class="media" src={url} alt={alt} />
+    <img class="media" src={url} {alt} />
   {:else}
     <!--for videos and other media, embed with an iframe-->
-    <iframe class="media" title={title} width="500" height="300" src={url}></iframe>
+    <iframe class="media" {title} width="500" height="300" src={url} />
   {/if}
   <figcaption>
     <!--slot extra information like a "learn more" link or image description-->
+    <slot name="date" />
     <slot name="figcaption" />
   </figcaption>
 </figure>

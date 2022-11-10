@@ -5,16 +5,14 @@ import Card from '../components/Card.astro';
 export async function getStaticPaths() {
   const blobs = await Astro.glob('../blobs/*.md');
 
-  return [
-    blobs.map((blob) => ({
-      params: {
-        slug: blob.frontmatter.slug
-      },
-      props: {
-        blob
-      }
-    }))
-  ];
+  return blobs.map((blob) => ({
+    params: {
+      slug: blob.frontmatter.slug
+    },
+    props: {
+      blob
+    }
+  }));
 }
 
 const { Content, frontmatter } = Astro.props.blob;
