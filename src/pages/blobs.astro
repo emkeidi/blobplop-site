@@ -15,6 +15,9 @@ const blobs = await Astro.glob('../blobs/*.md');
           blobs.map((blob) => (
             <Card>
               <h3>{blob.frontmatter.title}</h3>
+              <div>
+                Written by <strong>{blob.frontmatter.author} </strong> on {new Date(blob.frontmatter.date).toLocaleDateString()}
+              </div>
               <p>{blob.frontmatter.excerpt}</p>
               <a class='btn' href={`/${blob.frontmatter.slug}`}>
                 Read More
@@ -29,7 +32,7 @@ const blobs = await Astro.glob('../blobs/*.md');
 
 <style>
   main {
-    max-width: 60ch;
+    max-width: 75ch;
     margin: 0 auto;
     padding: 1.5rem;
   }
