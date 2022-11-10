@@ -6,7 +6,7 @@ export interface Props {
   title?: string | number;
 }
 
-const { title = 'BlobPlop' } = Astro.props;
+const { title = 'BlobPlop' } = Astro.props as Props;
 ---
 
 <!DOCTYPE html>
