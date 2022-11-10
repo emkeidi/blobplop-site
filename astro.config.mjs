@@ -11,7 +11,7 @@ import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [svelte(), mdx()],
-  adapter: netlify,
   output: 'server',
+  integrations: [svelte(), mdx()],
+  adapter: 'netlify',
 });
