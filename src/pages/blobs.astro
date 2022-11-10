@@ -1,8 +1,36 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Showcase from '../components/Showcase.astro';
+import Card from '../components/Card.astro';
+
+const blobs = await Astro.glob('../blobs/*.md');
 ---
 
-<Layout>
+<Layout title='Blobs'>
   <Showcase heading='Plopped Blobs 🍾' />
+  <main>
+    <section class='page-content'>
+      <div class='container'>
+        {
+          blobs.map((blob) => (
+            <Card>
+              <h3>{blob.frontmatter.title}</h3>
+              <p>{blob.frontmatter.excerpt}</p>
+              <a class='btn' href={`/${blob.frontmatter.slug}`}>
+                Read More
+              </a>
+            </Card>
+          ))
+        }
+      </div>
+    </section>
+  </main>
 </Layout>
+
+<style>
+  main {
+    max-width: 60ch;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+</style>
