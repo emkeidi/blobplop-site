@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import netlify from '@astrojs/netlify/functions';
 
 // https://astro.build/config
 import svelte from '@astrojs/svelte';
@@ -10,7 +11,10 @@ import netlify from '@astrojs/netlify/functions';
 import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
+
+// https://astro.build/config
 export default defineConfig({
   integrations: [svelte(), mdx()],
   adapter: netlify(),
+  output: 'server',
 });
