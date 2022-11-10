@@ -7,16 +7,18 @@ export async function getStaticPaths() {
 
   return blobs.map((blob) => ({
     params: {
-      slug: blob.frontmatter.slug,
+      slug: blob.frontmatter.slug
     },
     props: {
-      blob,
-    },
+      blob
+    }
   }));
 }
 
 const { Content, frontmatter } = Astro.props.blob;
 ---
+
+console.log(Astro.props.blob);
 
 <Layout title={frontmatter.title}>
   <section class='page-content'>
