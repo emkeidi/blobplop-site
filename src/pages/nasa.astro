@@ -13,7 +13,8 @@ const images = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${NASA_A
 
     <section class='lottie'><AstronautLottie /></section>
     <section class='carousel'>
-      <SpaceCarousel client:idle {images} />
+      <!-- Astro client directives made this a breeze! -->
+      <SpaceCarousel client:load {images} />
 
       <p>
         This carousel pulls 10 random images from NASA, courtesy of their <a href='https://api.nasa.gov/'>generous API</a>. This page is the result of following <a
