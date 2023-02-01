@@ -2,9 +2,12 @@
 import SpaceLayout from '../layouts/SpaceLayout.astro';
 import SpaceCarousel from '../components/SpaceCarousel.svelte';
 import AstronautLottie from '../components/AstronautLottie.astro';
-const NASA_API_KEY = import.meta.env.NASA_API_KEY;
 
-const images = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}&count=10`).then((res) => res.json());
+const spaceImagesUrl = `https://api.nasa.gov/planetary/apod?api_key=${
+  import.meta.env.NASA_API_KEY
+}&count=10`;
+
+const images = await fetch(spaceImagesUrl).then((res) => res.json());
 ---
 
 <SpaceLayout>
@@ -13,16 +16,35 @@ const images = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${NASA_A
 
     <section class='lottie'><AstronautLottie /></section>
     <section class='carousel'>
-      <!-- Astro client directives made this a breeze! -->
       <SpaceCarousel client:load {images} />
-
       <p>
-        This carousel pulls 10 random images from NASA, courtesy of their <a href='https://api.nasa.gov/'>generous API</a>. This page is the result of following <a
+        This carousel pulls 10 random images from NASA, courtesy of their <a
+          href='https://api.nasa.gov/'>generous API</a
+        >. This page is the result of following <a
           href='https://prismic.io/blog/astro-js-tutorial#start'>Prismic guide</a
         >.
       </p>
       <p><a href='/'>Back to homepage.</a></p>
     </section>
+    <div>
+      <button new-images-button>New Images</button>
+
+      <script define:vars={{ images, spaceImagesUrl }}>
+        const button = document.querySelector('[new-images-button]');
+        button.addEventListener('click', () => fetchNewSpaceImages());
+
+        async function fetchNewSpaceImages() {
+          const response = await fetch(spaceImagesUrl);
+          if (!response.ok) {
+            throw new Error('Something went wrong!');
+          }
+          const responseJson = await response.json();
+          console.log(responseJson);
+          // images = responseJson;
+          console.log(images);
+        }
+      </script>
+    </div>
   </main>
 </SpaceLayout>
 
@@ -62,6 +84,21 @@ const images = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${NASA_A
   .carousel {
     z-index: 100;
     position: sticky;
+  }
+  button {
+    background: none;
+    border: none;
+    color: var(--color-text-secondary);
+    border-radius: 0.3rem;
+    transition: background-color 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  button:hover,
+  button:focus-visible {
+    background-color: var(--grey-2);
   }
 
   .footer .container {

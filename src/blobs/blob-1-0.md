@@ -3,7 +3,7 @@ title: Blob 1.0
 slug: blob-1-0
 excerpt: Blobs are here. Blobs are new. Blobs are content you might like to chew on. Don't wait to engage. This blob is for you!
 date: 2022-11-09
-author: Matt Davis
+author: Matthew Davis
 ---
 
 # What are Blobs?

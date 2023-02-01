@@ -1,9 +1,9 @@
 ---
 title: SASS Quick Start
 slug: sass-quick-start
-excerpt: This is a simple guide to get SASS running on your VS Code project along with the Live Sass Compiler plugin. 
+excerpt: This is a simple guide to get SASS running on your VS Code project along with the Live Sass Compiler plugin.
 date: 2022-10-15
-author: Matt Davis
+author: Matthew Davis
 ---
 
 # SASS Quick Start for VS Code

@@ -25,10 +25,19 @@ const { Content, frontmatter } = Astro.props.blob;
         <a class='btn' href='/blobs'>Go Back</a>
         <h2>{frontmatter.title}</h2>
         <div>
-          Written by <strong>{frontmatter.author}</strong> on {new Date(frontmatter.date).toLocaleDateString()}
+          Written by <strong>{frontmatter.author}</strong> on {
+            new Date(frontmatter.date).toLocaleDateString()
+          }
         </div>
         <Content />
       </Card>
     </div>
   </section>
 </Layout>
+
+<style>
+  .page-content {
+    max-width: 90ch;
+    margin: 0 auto;
+  }
+</style>
