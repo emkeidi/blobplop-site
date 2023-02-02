@@ -4,6 +4,11 @@ import Showcase from '../components/Showcase.astro';
 import Card from '../components/Card.astro';
 
 const blobs = await Astro.glob('../blobs/*.md');
+
+// return blobs ordered by newest to oldest.
+const orderedBlobs = blobs.sort(function (a, b) {
+  return new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime();
+});
 ---
 
 <Layout title='Blobs'>
@@ -12,11 +17,12 @@ const blobs = await Astro.glob('../blobs/*.md');
     <section class='page-content'>
       <div class='container'>
         {
-          blobs.map((blob) => (
+          orderedBlobs.map((blob) => (
             <Card>
               <h3>{blob.frontmatter.title}</h3>
               <div>
-                Written by <strong>{blob.frontmatter.author} </strong> on {new Date(blob.frontmatter.date).toLocaleDateString()}
+                Written by <strong>{blob.frontmatter.author} </strong> on{' '}
+                {new Date(blob.frontmatter.date).toLocaleDateString()}
               </div>
               <p>{blob.frontmatter.excerpt}</p>
               <a class='btn' href={`/${blob.frontmatter.slug}`}>
