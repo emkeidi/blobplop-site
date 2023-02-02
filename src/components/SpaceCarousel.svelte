@@ -116,10 +116,10 @@
     font-weight: 600;
   }
 
-  a,
+  /* a,
   a:visited {
     display: flex;
     justify-content: center;
     padding: 0.5rem;
-  }
+  } */
 </style>

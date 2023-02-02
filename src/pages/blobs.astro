@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Showcase from '../components/Showcase.astro';
 import Card from '../components/Card.astro';
 
-const blobs = await Astro.glob('../blobs/*.md');
+const blobs = await Astro.glob('../content/blobs/*.md');
 
 // return blobs ordered by newest to oldest.
 const orderedBlobs = blobs.sort(function (a, b) {
