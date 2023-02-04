@@ -1,0 +1,12 @@
+---
+import { APODList } from '../components/APOD/APODList';
+import SpaceLayout from '../layouts/SpaceLayout.astro';
+---
+
+<SpaceLayout>
+  <main>
+    <h1>Blob: <span class='text-gradient'>Star Gazers</span></h1>
+    <p>APOD stands for Astronomy Picture of the Day.</p>
+  </main>
+  <APODList client:load />
+</SpaceLayout>
