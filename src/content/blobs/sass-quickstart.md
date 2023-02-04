@@ -10,7 +10,7 @@ category: Learning
 
 ## SASS Quick Start for VS Code
 
-first you can use node to globally install sass on your machine
+First you can use node to globally install sass on your machine
 
 `npm install -g sass`
 
