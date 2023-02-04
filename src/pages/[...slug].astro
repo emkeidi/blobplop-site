@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import { CollectionEntry, getCollection } from 'astro:content';
+
+interface Props {
+  blob: CollectionEntry<'blobs'>;
+}
+
+export async function getStaticPaths() {
+  const allBlobs = await getCollection('blobs');
+  return allBlobs.map((blob) => ({
+    params: { slug: blob.slug },
+    props: { blob }
+  }));
+}
+
+const { blob } = Astro.props;
+const { Content } = await blob.render();
+---
+
+<Layout title={blob.data.title}>
+  <section class='page-content'>
+    <div class='container'>
+      <Card>
+        <a class='btn' href='/blobs'>Go Back</a>
+        <h2>{blob.data.title}</h2>
+        <div>
+          Written by <strong>{blob}</strong> on {new Date(blob.data.date).toLocaleDateString()}
+        </div>
+        <Content />
+      </Card>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-content {
+    max-width: 90ch;
+    margin: 0 auto;
+  }
+</style>

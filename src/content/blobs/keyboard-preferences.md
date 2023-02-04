@@ -1,9 +1,10 @@
 ---
 title: Keyboard Preferences
-slug: keyboard-preferences
-excerpt: What do you like to type on each day? Have you given it no thought or way too much? Join the casual keyboard movement.
+isDraft: false
+description: What do you like to type on each day? Have you given it no thought or way too much? Join the casual keyboard movement.
 date: 2023-02-01
 author: Matthew Davis
+category: Random
 ---
 
 When was the last time you thought about your keyboard?
