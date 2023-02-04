@@ -1,5 +1,6 @@
 ---
 title: SASS Quick Start
+slug: sass-start
 isDraft: false
 description: This is a simple guide to get SASS running on your VS Code project along with the Live Sass Compiler plugin.
 date: 2022-10-15

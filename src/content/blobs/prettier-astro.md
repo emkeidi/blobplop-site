@@ -1,5 +1,6 @@
 ---
 title: Prettier With Astro
+slug: prettier-with-astro
 isDraft: false
 description: This is the command you need to run to install the prettier plugin for astro.
 date: 2022-11-05

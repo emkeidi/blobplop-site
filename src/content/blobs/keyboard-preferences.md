@@ -1,5 +1,6 @@
 ---
 title: Keyboard Preferences
+slug: keyboard-preferences
 isDraft: false
 description: What do you like to type on each day? Have you given it no thought or way too much? Join the casual keyboard movement.
 date: 2023-02-01

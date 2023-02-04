@@ -1,11 +1,7 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
 import { CollectionEntry, getCollection } from 'astro:content';
-
-interface Props {
-  blob: CollectionEntry<'blobs'>;
-}
+import Layout from '../../layouts/Layout.astro';
+import Card from '../../components/Card.astro';
 
 export async function getStaticPaths() {
   const allBlobs = await getCollection('blobs');
@@ -13,6 +9,10 @@ export async function getStaticPaths() {
     params: { slug: blob.slug },
     props: { blob }
   }));
+}
+
+interface Props {
+  blob: CollectionEntry<'blobs'>;
 }
 
 const { blob } = Astro.props;

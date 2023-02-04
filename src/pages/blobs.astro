@@ -1,5 +1,5 @@
 ---
-import { getCollection, CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import Showcase from '../components/Showcase.astro';
 import Card from '../components/Card.astro';
@@ -8,7 +8,7 @@ const blobs = await getCollection('blobs', ({ data }) => {
   return data.isDraft !== true;
 });
 
-// return blobs ordered by newest to oldest.
+// newest to oldest
 const orderedBlobs = blobs.sort(function (a, b) {
   return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
 });
