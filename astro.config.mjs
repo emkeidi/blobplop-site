@@ -5,11 +5,16 @@ import svelte from '@astrojs/svelte';
 import react from '@astrojs/react';
 
 // https://astro.build/config
+import netlify from "@astrojs/netlify/functions";
+
+// https://astro.build/config
 export default defineConfig({
   integrations: [svelte(), react()],
   site: 'https://blobplop.com/',
   markdown: {
     smartypants: false,
     gfm: true
-  }
+  },
+  output: "server",
+  adapter: netlify()
 });
