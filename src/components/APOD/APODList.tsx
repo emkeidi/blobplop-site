@@ -45,7 +45,7 @@ export const APODList = () => {
   return (
     <div className='space-images-list'>
       <section className='space-images container-fluid' id='space-images'>
-        <div className='row row-cols-1 row-cols-xl-2 row-cols-lg-2 row-cols-md-1 row-cols-sm-1'>
+        <div className='row row-cols-1'>
           {images.map((image) => (
             <SpaceImageCard key={image.url} image={image} />
           ))}

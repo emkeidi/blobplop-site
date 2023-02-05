@@ -9,18 +9,20 @@ import SpaceLayout from '../layouts/SpaceLayout.astro';
       <h1>Blob: <span class='text-gradient'>Star Gazers</span></h1>
       <p>APOD stands for Astronomy Picture of the Day.</p>
     </section>
-    <APODList client:load />
+    <section class='images'>
+      <APODList client:load />
+    </section>
   </main>
 </SpaceLayout>
 
 <style>
-  body {
-    max-width: 70%;
+  .images {
+    max-width: 90%;
     margin: 0 auto;
   }
 
   .intro {
-    max-width: 60%;
+    text-align: center;
     margin: 0 auto;
     color: azure;
     margin-bottom: 3rem;
