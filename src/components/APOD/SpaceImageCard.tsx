@@ -34,6 +34,9 @@ export default function SpaceImageCard({ image }: SpaceImageCardProps) {
               {image.date} {image.copyright}
             </h6>
             <p className='card-text'>{image.explanation}</p>
+            <p>
+              <a href={image.hdurl}>Link to original</a>
+            </p>
           </div>
         </div>
       </div>
