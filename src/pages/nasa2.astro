@@ -5,8 +5,24 @@ import SpaceLayout from '../layouts/SpaceLayout.astro';
 
 <SpaceLayout>
   <main>
-    <h1>Blob: <span class='text-gradient'>Star Gazers</span></h1>
-    <p>APOD stands for Astronomy Picture of the Day.</p>
+    <section class='intro'>
+      <h1>Blob: <span class='text-gradient'>Star Gazers</span></h1>
+      <p>APOD stands for Astronomy Picture of the Day.</p>
+    </section>
+    <APODList client:load />
   </main>
-  <APODList client:load />
 </SpaceLayout>
+
+<style>
+  body {
+    max-width: 70%;
+    margin: 0 auto;
+  }
+
+  .intro {
+    max-width: 60%;
+    margin: 0 auto;
+    color: azure;
+    margin-bottom: 3rem;
+  }
+</style>
