@@ -11,9 +11,7 @@ export const APODList = () => {
 
   useEffect(() => {
     const fetchSpaceImages = async () => {
-      const imagesResponse = await fetch(
-        'http://blobplopapiproxy-env.eba-j8dkfhwy.us-east-1.elasticbeanstalk.com/api/v1/apod'
-      );
+      const imagesResponse = await fetch('https://api.blobplop.com/api/v1/apod');
 
       if (!imagesResponse.ok) {
         throw new Error('something went wrong in space!');
