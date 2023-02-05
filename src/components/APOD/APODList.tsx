@@ -12,9 +12,7 @@ export const APODList = () => {
   useEffect(() => {
     const fetchSpaceImages = async () => {
       const imagesResponse = await fetch(
-        `https://api.nasa.gov/planetary/apod?api_key=${
-          import.meta.env.PUBLIC_NASA_API_KEY
-        }&count=10`
+        'http://blobplopapiproxy-env.eba-j8dkfhwy.us-east-1.elasticbeanstalk.com/api/v1/apod'
       );
 
       if (!imagesResponse.ok) {
