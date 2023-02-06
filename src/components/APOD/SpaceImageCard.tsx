@@ -1,5 +1,5 @@
 import SpaceImagesModel from '../../../models/SpaceImagesModel';
-import './SpaceImageCard.css'
+import './SpaceImageCard.css';
 
 interface SpaceImageCardProps {
   image: SpaceImagesModel;
@@ -18,7 +18,9 @@ export default function SpaceImageCard({ image }: SpaceImageCardProps) {
             </h6>
             <p className='card-text'>{image.explanation}</p>
             <p>
-              <a href={image.hdurl}>Link to original</a>
+              <a href={image.hdurl} target='_blank'>
+                Link to original
+              </a>
             </p>
           </div>
         </div>

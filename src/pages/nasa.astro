@@ -5,12 +5,27 @@ import SpaceLayout from '../layouts/SpaceLayout.astro';
 
 <SpaceLayout>
   <main>
-    <section class='intro'>
-      <h1>Blob: <span class='text-gradient'>Star Gazers</span></h1>
-      <p>APOD stands for Astronomy Picture of the Day.</p>
+    <section>
+      <h1 class='title'>Blob: <span class='text-gradient'>Star Gazers</span></h1>
+      <section class='intro'>
+        <p>APOD stands for Astronomy Picture of the Day.</p>
+        <p>
+          This page fetches three images or videos from the NASA APOD API. Every 30 seconds, you can
+          use the buttons to request three new images.
+        </p>
+        <p>
+          Each image or video should have a link at the bottom of its description. Please open this
+          link if you wish to hang onto any favorites! The links should default to opening in a new
+          tab. Credit is provided when it is detected.
+        </p>
+        <p>
+          Pro tip: If the media isn't updating when you press the button, please wait some more
+          seconds and try again.
+        </p>
+      </section>
     </section>
     <section class='images'>
-      <APODList client:load />
+      <APODList client:visible />
     </section>
   </main>
 </SpaceLayout>
@@ -21,10 +36,16 @@ import SpaceLayout from '../layouts/SpaceLayout.astro';
     margin: 0 auto;
   }
 
-  .intro {
+  .title {
     text-align: center;
     margin: 0 auto;
     color: azure;
     margin-bottom: 3rem;
+  }
+
+  .intro {
+    max-width: 70ch;
+    color: azure;
+    margin: 0 auto;
   }
 </style>
