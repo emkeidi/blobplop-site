@@ -28,7 +28,9 @@ const { title = 'BlobPlop' } = Astro.props as Props;
   </head>
   <body>
     <Header />
-    <slot />
+    <main>
+      <slot />
+    </main>
     <Footer />
     <!-- Bootstrap JS -->
     <script
@@ -39,7 +41,7 @@ const { title = 'BlobPlop' } = Astro.props as Props;
   </body>
 </html>
 
-<style is:global>
+<style>
   /* TODO move some of this to the specific pages, it seems Layouts
 	are not the best spot for all CSS things */
   :root {
@@ -54,6 +56,7 @@ const { title = 'BlobPlop' } = Astro.props as Props;
     --box-shadow-glow: #6a21a7 0 1px 5px;
     --space-gradient: linear-gradient(#0f172a 70%, #240240);
   }
+
   html {
     font-family: system-ui, sans-serif;
     font-size: var(--font-size-base);
@@ -62,7 +65,8 @@ const { title = 'BlobPlop' } = Astro.props as Props;
     overflow-x: auto;
     overflow-y: auto;
   }
-  body {
+
+  main {
     margin: 0;
     background: url('https://astro.build/stars.png'), var(--space-gradient);
     height: 100%;

@@ -6,9 +6,12 @@ import logo from '../images/alien.png';
 <header class='header'>
   <div class='container'>
     <div class='logo'>
-      <a href='/'>
-        <img src={logo} alt='logo' />
-      </a>
+      <span class='logo'>
+        <a href='/'>
+          <img src={logo} alt='logo' />
+        </a>
+        <span class='title'>BlopPlop</span>
+      </span>
     </div>
     <nav>
       <ul>
@@ -23,7 +26,17 @@ import logo from '../images/alien.png';
 <style>
   .header {
     height: 120px;
-    background: var(--color-primary);
+    background: #0f172a;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .title {
+    margin-left: 2rem;
+    font-size: x-large;
+    color: azure;
+    font-weight: 700;
   }
 
   .header .container {
