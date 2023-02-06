@@ -30,7 +30,7 @@ export default function SpaceImageCard({ image }: SpaceImageCardProps) {
     return (
       <div className='col'>
         <div className='card shadow text-bg-dark mb-3 g-3'>
-          <iframe src={image.url} />
+          <iframe src={image.url} allow='autoplay' allowFullScreen />
           <div className='card-body'>
             <h5 className='card-title'>{image.title}</h5>
             <h6 className='card-subtitle mb-2'>
