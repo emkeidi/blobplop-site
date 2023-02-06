@@ -2,3 +2,9 @@
     max-width: 80ch;
     margin: 0 auto;
   }
+
+  iframe {
+    aspect-ratio: 16/9;
+    height: 100%;
+    width: 100%;
+  }

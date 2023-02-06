@@ -30,7 +30,7 @@ export default function SpaceImageCard({ image }: SpaceImageCardProps) {
     return (
       <div className='col'>
         <div className='card shadow text-bg-dark mb-3 g-3'>
-          <iframe src={image.hdurl} className='card-img-top' />
+          <iframe src={image.url} />
           <div className='card-body'>
             <h5 className='card-title'>{image.title}</h5>
             <h6 className='card-subtitle mb-2'>
@@ -38,7 +38,9 @@ export default function SpaceImageCard({ image }: SpaceImageCardProps) {
             </h6>
             <p className='card-text'>{image.explanation}</p>
             <p>
-              <a href={image.hdurl}>Link to original</a>
+              <a href={image.url} target='_blank'>
+                Link to original
+              </a>
             </p>
           </div>
         </div>
