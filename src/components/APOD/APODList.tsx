@@ -55,8 +55,8 @@ export const APODList = () => {
             <SpaceImageCard key={image.url} image={image} />
           ))}
         </div>
-        <div className='col text-center mb-3'>
-          <button className='btn btn-primary m-2 p-2' onClick={() => setNewImages(!newImages)}>
+        <div className='col text-center'>
+          <button className='btn btn-primary mb-4 p-2' onClick={() => setNewImages(!newImages)}>
             New Images
           </button>
         </div>
