@@ -1,6 +1,7 @@
   .card-body {
-    max-width: 80ch;
+    max-width: 67ch;
     margin: 0 auto;
+    line-height: 1.8rem;
   }
 
   iframe {
