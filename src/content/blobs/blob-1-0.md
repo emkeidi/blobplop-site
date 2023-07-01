@@ -1,7 +1,7 @@
 ---
 title: Blob 1.0
 slug: blob
-isDraft: false
+isDraft: true
 description: Blobs are here. Blobs are new. Blobs are content you might like to chew on. Don't wait to engage. This blob is for you!
 date: 2022-11-09
 author: Matthew Davis

@@ -1,14 +1,12 @@
 import { defineConfig } from 'astro/config';
-
-// https://astro.build/config
 import svelte from '@astrojs/svelte';
 import react from '@astrojs/react';
+import tailwind from '@astrojs/tailwind';
 
-// https://astro.build/config
 export default defineConfig({
-  integrations: [svelte(), react()],
-  markdown: {
-    smartypants: false,
-    gfm: true
-  }
+	integrations: [svelte(), react(), tailwind()],
+	markdown: {
+		smartypants: false,
+		gfm: true,
+	},
 });

@@ -1,18 +1,18 @@
 ---
 import { CollectionEntry, getCollection } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
+import Layout from '../../layouts/LayoutSerif.astro';
 import Card from '../../components/Card.astro';
 
 export async function getStaticPaths() {
-  const allBlobs = await getCollection('blobs');
-  return allBlobs.map((blob) => ({
-    params: { slug: blob.slug },
-    props: { blob }
-  }));
+	const allBlobs = await getCollection('blobs');
+	return allBlobs.map((blob) => ({
+		params: { slug: blob.slug },
+		props: { blob },
+	}));
 }
 
 interface Props {
-  blob: CollectionEntry<'blobs'>;
+	blob: CollectionEntry<'blobs'>;
 }
 
 const { blob } = Astro.props;
@@ -20,25 +20,36 @@ const { Content } = await blob.render();
 ---
 
 <Layout title={blob.data.title}>
-  <section class='page-content'>
-    <div class='container'>
-      <Card>
-        <a class='btn' href='/blobs'>Go Back</a>
-        <h2>{blob.data.title}</h2>
-        <div>
-          Written by <strong>{blob.data.author}</strong> on {
-            new Date(blob.data.date).toLocaleDateString()
-          }
-        </div>
-        <Content />
-      </Card>
-    </div>
-  </section>
+	<section class='page-content'>
+		<div class='container'>
+			<Card>
+				<a class='btn' href='/blobs'>Go Back</a>
+				<h2>{blob.data.title}</h2>
+				<div>
+					Written by <strong>{blob.data.author}</strong> on {
+						new Date(blob.data.date).toLocaleDateString('en-US', {
+							timeZone: 'UTC',
+						})
+					}
+				</div>
+				<div class='prose prose-l lg:prose-xl'>
+					<Content />
+				</div>
+			</Card>
+		</div>
+	</section>
 </Layout>
 
 <style>
-  .page-content {
-    max-width: 90ch;
-    margin: 0 auto;
-  }
+	@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+	.page-content {
+		max-width: 100ch;
+		margin: 0 auto;
+	}
+
+	.markdown p {
+		font-family: Lora, serif;
+		font-weight: 400;
+		font-size: 1rem;
+	}
 </style>

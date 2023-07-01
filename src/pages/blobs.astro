@@ -5,45 +5,50 @@ import Showcase from '../components/Showcase.astro';
 import Card from '../components/Card.astro';
 
 const blobs = await getCollection('blobs', ({ data }) => {
-  return data.isDraft !== true;
+	return data.isDraft !== true;
 });
-
+// had a silly long time trying to understand how to present the dates
+// since they are coming in as UTC at 00:00:00, the simplest way is to not convert
+// TODO: change this if you wish to include more detailed timestamps
+// blobs.forEach((e) => console.log(e.data.date));
 // newest to oldest
 const orderedBlobs = blobs.sort(function (a, b) {
-  return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
+	return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
 });
 ---
 
 <Layout title='Blobs'>
-  <Showcase heading='Plopped Blobs 🍾' />
-  <main>
-    <section class='page-content'>
-      <div class='container'>
-        {
-          orderedBlobs.map((blob) => (
-            <Card>
-              <h3>{blob.data.title}</h3>
-              <div>
-                Written by <strong>{blob.data.author} </strong> on{' '}
-                {new Date(blob.data.date).toLocaleDateString()}
-              </div>
-              <p>{blob.data.description}</p>
-              <a class='btn' href={`/blobs/${blob.slug}`}>
-                Read More
-              </a>
-            </Card>
-          ))
-        }
-      </div>
-    </section>
-  </main>
+	<Showcase heading='Plopped Blobs 🍾' />
+	<main>
+		<section class='page-content'>
+			<div class='container'>
+				{
+					orderedBlobs.map((blob) => (
+						<Card>
+							<h3>{blob.data.title}</h3>
+							<div>
+								Written by <strong>{blob.data.author} </strong> on{' '}
+								{new Date(blob.data.date).toLocaleDateString('en-US', {
+									timeZone: 'UTC',
+								})}
+							</div>
+							<p>{blob.data.description}</p>
+							<a class='btn' href={`/blobs/${blob.slug}`}>
+								Read More
+							</a>
+						</Card>
+					))
+				}
+			</div>
+		</section>
+	</main>
 
-  <style>
-    main {
-      max-width: 75ch;
-      margin: 0 auto;
-      padding: 1.5rem;
-      word-wrap: normal;
-    }
-  </style>
+	<style>
+		main {
+			max-width: 75ch;
+			margin: 0 auto;
+			padding: 1.5rem;
+			word-wrap: normal;
+		}
+	</style>
 </Layout>
