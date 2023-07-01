@@ -5,80 +5,80 @@ import Showcase from '../components/Showcase.astro';
 ---
 
 <Layout>
-  <Showcase />
-  <main>
-    <h1>All roads lead to <span class='text-gradient'>Blob</span></h1>
-    <p class='instructions'>
-      BlobPlop is part website, part <strike>blog</strike>
-      <em>blob</em>, all plopped with 🦠 by <a href='/bio/'>Matthew Davis</a>.
-    </p>
-    <ul role='list' class='link-card-grid'>
-      <ListCard
-        href='/blobs/'
-        title='Blobs'
-        body='Have you had your daily recommended blob intake today?'
-      />
-      <ListCard
-        href='/nasa/'
-        title='Nasa API'
-        body='10 random "Astronomy Picture of the Day" selections.'
-      />
-      <ListCard
-        href='/about/'
-        title='About'
-        body='Blobs, you say? What, exactly, do you mean when you speak of such objects?'
-      />
-      <ListCard
-        href='https://astro.build/chat/'
-        title='Community'
-        body='Come say hi to our amazing Discord community. ❤️'
-      />
-    </ul>
-  </main>
+	<Showcase />
+	<main>
+		<h1>All roads lead to <span class='text-gradient'>Blob</span></h1>
+		<p class='instructions'>
+			BlobPlop is part website, part <strike>blog</strike>
+			<em>blob</em>, all plopped with 🦠 by <a href='/bio/'>Matthew Davis</a>.
+		</p>
+		<ul role='list' class='link-card-grid'>
+			<ListCard
+				href='/blobs/'
+				title='Blobs'
+				body='Have you had your daily recommended blob intake today?'
+			/>
+			<ListCard
+				href='/nasa/'
+				title='Nasa API'
+				body='10 random "Astronomy Picture of the Day" selections.'
+			/>
+			<ListCard
+				href='/about/'
+				title='About'
+				body='Blobs, you say? What, exactly, do you mean when you speak of such objects?'
+			/>
+			<ListCard
+				href='https://astro.build/chat/'
+				title='Community'
+				body='Come say hi to our amazing Discord community. ❤️'
+			/>
+		</ul>
+	</main>
 </Layout>
 <style>
-  main {
-    margin: auto;
-    padding: 1.5rem;
-    max-width: 60ch;
-  }
-  h1 {
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin: 0;
-    color: var(--color-primary);
-    text-align: center;
-  }
-  .text-gradient {
-    background-image: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400%;
-    background-position: 0%;
-  }
-  .instructions {
-    line-height: 1.6;
-    margin: 1rem 0;
-    border: 1px solid rgba(var(--accent), 25%);
-    background-color: white;
-    padding: 1rem;
-    border-radius: 0.4rem;
-  }
-  .instructions code {
-    font-size: 0.875em;
-    font-weight: bold;
-    background: rgba(var(--accent), 12%);
-    color: rgb(var(--accent));
-    border-radius: 4px;
-    padding: 0.3em 0.45em;
-  }
-  .instructions strong {
-    color: rgb(var(--accent));
-  }
-  .link-card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-    gap: 1rem;
-    padding: 0;
-  }
+	main {
+		margin: auto;
+		padding: 1.5rem;
+		max-width: 60ch;
+	}
+	h1 {
+		font-size: 2.5rem;
+		font-weight: 800;
+		margin: 0;
+		color: var(--color-primary);
+		text-align: center;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.instructions {
+		line-height: 1.6;
+		margin: 1rem 0;
+		border: 1px solid rgba(var(--accent), 25%);
+		background-color: white;
+		padding: 1rem;
+		border-radius: 0.4rem;
+	}
+	.instructions code {
+		font-size: 0.875em;
+		font-weight: bold;
+		background: rgba(var(--accent), 12%);
+		color: rgb(var(--accent));
+		border-radius: 4px;
+		padding: 0.3em 0.45em;
+	}
+	.instructions strong {
+		color: rgb(var(--accent));
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1rem;
+		padding: 0;
+	}
 </style>

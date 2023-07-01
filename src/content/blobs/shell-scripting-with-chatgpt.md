@@ -72,13 +72,19 @@ $memoryThreshold = 90 # Set the threshold percentage for high memory consumption
 $diskThreshold = 80 # Set the threshold percentage for high disk usage
 
 # Get current CPU usage percentage
-$cpuUsage = (Get-WmiObject -Class Win32_Processor | Measure-Object -Property LoadPercentage -Average).Average
+$cpuUsage = (Get-WmiObject -Class Win32_Processor
+| Measure-Object -Property LoadPercentage -Average).Average
 
 # Get current memory consumption percentage
-$memoryUsage = Get-Counter -Counter "\Memory\% Committed Bytes In Use" | Select-Object -ExpandProperty CounterSamples | Select-Object -ExpandProperty CookedValue
+$memoryUsage = Get-Counter -Counter "\Memory\% Committed Bytes In Use"
+| Select-Object -ExpandProperty CounterSamples
+| Select-Object -ExpandProperty CookedValue
 
 # Get disk space usage percentage for the C drive
-$diskUsage = (Get-WmiObject -Class Win32_LogicalDisk -Filter "DeviceID='C:'" | Select-Object -ExpandProperty FreeSpace) / (Get-WmiObject -Class Win32_LogicalDisk -Filter "DeviceID='C:'" | Select-Object -ExpandProperty Size) * 100
+$diskUsage = (Get-WmiObject -Class Win32_LogicalDisk -Filter "DeviceID='C:'"
+| Select-Object -ExpandProperty FreeSpace)
+/ (Get-WmiObject -Class Win32_LogicalDisk -Filter "DeviceID='C:'"
+| Select-Object -ExpandProperty Size) * 100
 $diskUsage = [Math]::Round($diskUsage, 2)
 
 # Check if CPU, memory, or disk usage exceeds the thresholds
@@ -115,9 +121,15 @@ $htmlReport = @"
         <h1>System Monitoring Report</h1>
     </div>
     <div class="content">
-        <h2>CPU Usage: <span class="$([bool]$highCpuUsage -as [int])">$(if ($highCpuUsage) { "<span class='high-usage'>$cpuUsage%</span>" } else { "$cpuUsage%" })</span></h2>
-        <h2>Memory Consumption: <span class="$([bool]$highMemoryUsage -as [int])">$(if ($highMemoryUsage) { "<span class='high-usage'>$memoryUsage%</span>" } else { "$memoryUsage%" })</span></h2>
-        <h2>Disk Space Usage (C:): <span class="$([bool]$highDiskUsage -as [int])">$(if ($highDiskUsage) { "<span class='high-usage'>$diskUsage%</span>" } else { "$diskUsage%" })</span></h2>
+        <h2>CPU Usage: <span class="$([bool]$highCpuUsage -as [int])">
+        $(if ($highCpuUsage) { "<span class='high-usage'>$cpuUsage%</span>" }
+        else { "$cpuUsage%" })</span></h2>
+        <h2>Memory Consumption: <span class="$([bool]$highMemoryUsage -as [int])">
+        $(if ($highMemoryUsage) { "<span class='high-usage'>$memoryUsage%</span>" }
+        else { "$memoryUsage%" })</span></h2>
+        <h2>Disk Space Usage (C:): <span class="$([bool]$highDiskUsage -as [int])">
+        $(if ($highDiskUsage) { "<span class='high-usage'>$diskUsage%</span>" }
+        else { "$diskUsage%" })</span></h2>
     </div>
 </body>
 </html>
