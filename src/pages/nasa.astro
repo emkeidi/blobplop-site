@@ -24,7 +24,7 @@ export const prerender = false;
 				</p>
 				<p>
 					Pro tip: If the content isn't updating when you press the button, please wait a few more
-					seconds and try again.
+					seconds and try again. Also, click the titles to reveal an explanation.
 				</p>
 			</section>
 		</section>
@@ -33,10 +33,9 @@ export const prerender = false;
 		</section>
 	</main>
 </SpaceLayout>
-
 <style>
 	.images {
-		max-width: 90%;
+		max-width: 50%;
 		margin: 0 auto;
 	}
 
@@ -46,12 +45,49 @@ export const prerender = false;
 		color: azure;
 		margin-bottom: 3rem;
 	}
-
 	.intro {
 		max-width: 67ch;
 		line-height: 1.8rem;
 		color: azure;
 		margin: 0 auto;
 		padding: 0 2rem;
+	}
+	p {
+		padding-bottom: 1.2rem;
+	}
+
+	/* Media Query Time! */
+
+	@media (max-width: 1300px) {
+		.images {
+			max-width: 50%;
+		}
+	}
+	@media (max-width: 1024px) {
+		.images {
+			max-width: 60%;
+		}
+	}
+	@media (max-width: 768px) {
+		.images {
+			max-width: 80%;
+		}
+	}
+
+	@media (max-width: 666px) {
+		.images {
+			max-width: 90%;
+		}
+		/* … */
+	}
+	@media (max-width: 568px) {
+		.images {
+			max-width: 100%;
+		}
+	}
+	@media (max-width: 360px) {
+		.images {
+			max-width: 100%;
+		}
 	}
 </style>

@@ -1,11 +1,31 @@
   .card-body {
     max-width: 67ch;
-    margin: 0 auto;
     line-height: 1.8rem;
   }
+
 
   iframe {
     aspect-ratio: 16/9;
     height: 100%;
     width: 100%;
+  }
+
+  /* unvisited link */
+  a:link {
+    color: hotpink;
+  }
+
+  /* visited link */
+  a:visited {
+    color: plum;
+  }
+
+  /* mouse over link */
+  a:hover {
+    color: seagreen;
+  }
+
+  /* selected link */
+  a:active {
+    color: springgreen;
   }
