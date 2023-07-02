@@ -17,7 +17,11 @@ export default function SpaceImageCard({ image }: SpaceImageCardProps) {
 								<em>{image.title}</em>, {image.date}
 								{image.copyright && <p>{image.copyright}</p>}
 							</summary>
-							<p className='card-text'>{image.explanation}</p>
+							{image.explanation ? (
+								<p className='card-text'>{image.explanation}</p>
+							) : (
+								<p>No explanation detected 🔭🌚</p>
+							)}
 						</details>
 						<p>
 							<a href={image.hdurl} target='_blank' rel='noopener'>
@@ -38,10 +42,15 @@ export default function SpaceImageCard({ image }: SpaceImageCardProps) {
 							<summary>
 								<h5 className='card-title'>{image.title}</h5>
 								<h6 className='card-subtitle mb-2'>
-									{image.date} {image.copyright}
+									{image.date}
+									{image.copyright && <p>{image.copyright}</p>}
 								</h6>
 							</summary>
-							<p className='card-text'>{image.explanation}</p>
+							{image.explanation ? (
+								<p className='card-text'>{image.explanation}</p>
+							) : (
+								<p>No explanation detected 🔭🌚</p>
+							)}
 						</details>
 						<p>
 							<a href={image.url} target='_blank' rel='noopener'>
