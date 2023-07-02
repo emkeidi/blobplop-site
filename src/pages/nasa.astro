@@ -1,55 +1,57 @@
 ---
 import { APODList } from '../components/APOD/APODList';
 import SpaceLayout from '../layouts/SpaceLayout.astro';
+// most of the site is static so this is needed so that images will refresh
+export const prerender = false;
 ---
 
 <SpaceLayout>
-  <main>
-    <section>
-      <h1 class='title'>Blob: <span class='text-gradient'>Star Gazers</span></h1>
-      <section class='intro'>
-        <p>
-          APOD stands for Astronomy Picture of the Day, a NASA service that has been serving up
-          intergalactic goodness since June 16, 1995. 🌠
-        </p>
-        <p>
-          This page fetches three images or videos from the NASA APOD API. You can click to request
-          new images every 30 seconds.
-        </p>
-        <p>
-          Each image or video should have a link at the bottom of its description. Please open the
-          links if you wish to hang onto any favorites! Credit is provided when detected.
-        </p>
-        <p>
-          Pro tip: If the content isn't updating when you press the button, please wait a few more
-          seconds and try again.
-        </p>
-      </section>
-    </section>
-    <section class='images'>
-      <APODList client:visible />
-    </section>
-  </main>
+	<main>
+		<section>
+			<h1 class='title'>Blob: <span class='text-gradient'>Star Gazers</span></h1>
+			<section class='intro'>
+				<p>
+					APOD stands for Astronomy Picture of the Day, a NASA service that has been serving up
+					intergalactic goodness since June 16, 1995. 🌠
+				</p>
+				<p>
+					This page fetches three images or videos from the NASA APOD API. You can click to request
+					new images every 30 seconds.
+				</p>
+				<p>
+					Each image or video should have a link at the bottom of its description. Please open the
+					links if you wish to hang onto any favorites! Credit is provided when detected.
+				</p>
+				<p>
+					Pro tip: If the content isn't updating when you press the button, please wait a few more
+					seconds and try again.
+				</p>
+			</section>
+		</section>
+		<section class='images'>
+			<APODList client:visible />
+		</section>
+	</main>
 </SpaceLayout>
 
 <style>
-  .images {
-    max-width: 90%;
-    margin: 0 auto;
-  }
+	.images {
+		max-width: 90%;
+		margin: 0 auto;
+	}
 
-  .title {
-    text-align: center;
-    margin: 0 auto;
-    color: azure;
-    margin-bottom: 3rem;
-  }
+	.title {
+		text-align: center;
+		margin: 0 auto;
+		color: azure;
+		margin-bottom: 3rem;
+	}
 
-  .intro {
-    max-width: 67ch;
-    line-height: 1.8rem;
-    color: azure;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
+	.intro {
+		max-width: 67ch;
+		line-height: 1.8rem;
+		color: azure;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
 </style>

@@ -4,6 +4,7 @@ import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
+	output: 'hybrid',
 	integrations: [svelte(), react(), tailwind()],
 	markdown: {
 		smartypants: false,
