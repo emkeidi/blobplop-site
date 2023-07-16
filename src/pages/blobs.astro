@@ -3,9 +3,10 @@ import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import Showcase from '../components/Showcase.astro';
 import Card from '../components/Card.astro';
+import { Image } from 'astro:assets';
 
 const blobs = await getCollection('blobs', ({ data }) => {
-	return data.isDraft !== true;
+	return data.draft !== true;
 });
 // had a silly long time trying to understand how to present the dates
 // since they are coming in as UTC at 00:00:00, the simplest way is to not convert
@@ -18,13 +19,14 @@ const orderedBlobs = blobs.sort(function (a, b) {
 ---
 
 <Layout title='Blobs'>
-	<Showcase heading='Plopped Blobs 🍾' />
+	<Showcase heading='Free Blobs' />
 	<main>
 		<section class='page-content'>
 			<div class='container'>
 				{
 					orderedBlobs.map((blob) => (
 						<Card>
+							<Image src={blob.data.cover} alt={blob.data.coverAlt} />
 							<h3>{blob.data.title}</h3>
 							<div>
 								Written by <strong>{blob.data.author} </strong> on{' '}
@@ -49,6 +51,10 @@ const orderedBlobs = blobs.sort(function (a, b) {
 			margin: 0 auto;
 			padding: 1.5rem;
 			word-wrap: normal;
+		}
+
+		img {
+			border-radius: 10px;
 		}
 	</style>
 </Layout>

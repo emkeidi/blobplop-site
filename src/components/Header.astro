@@ -1,56 +1,57 @@
 ---
 import logo from '../images/alien.png';
+import { Image } from 'astro:assets';
 ---
 
 <!-- TODO make me static!  -->
 <header class='header'>
-  <div class='container'>
-    <div class='logo'>
-      <span class='logo'>
-        <a href='/'>
-          <img src={logo} alt='logo' />
-        </a>
-      </span>
-    </div>
-    <nav>
-      <ul>
-        <li><a href='/'>Home</a></li>
-        <li><a href='/about'>About</a></li>
-        <li><a href='/blobs'>Blobs</a></li>
-      </ul>
-    </nav>
-  </div>
+	<div class='container'>
+		<div class='logo'>
+			<span class='logo'>
+				<a href='/'>
+					<Image src={logo} width={70} alt='logo' />
+				</a>
+			</span>
+		</div>
+		<nav>
+			<ul>
+				<li><a href='/'>Home</a></li>
+				<li><a href='/about'>About</a></li>
+				<li><a href='/blobs'>Blobs</a></li>
+			</ul>
+		</nav>
+	</div>
 </header>
 
 <style>
-  .header {
-    height: 120px;
-    background: #0f172a;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    filter: alp;
-  }
+	.header {
+		height: 120px;
+		background: #0f172a;
+		position: sticky;
+		top: 0;
+		z-index: 10;
+		filter: alp;
+	}
 
-  .header .container {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-  }
-  .header img {
-    margin-left: 1rem;
-    height: 65px;
-    vertical-align: middle;
-  }
-  .header nav ul {
-    display: flex;
-  }
-  .header nav ul li {
-    padding: 0 10px;
-  }
-  .header nav ul li a {
-    color: #fff;
-  }
+	.header .container {
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 20px;
+	}
+	.header img {
+		margin-left: 1rem;
+		height: 65px;
+		vertical-align: middle;
+	}
+	.header nav ul {
+		display: flex;
+	}
+	.header nav ul li {
+		padding: 0 10px;
+	}
+	.header nav ul li a {
+		color: #fff;
+	}
 </style>

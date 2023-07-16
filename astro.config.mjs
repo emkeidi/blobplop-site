@@ -1,15 +1,35 @@
 import { defineConfig } from 'astro/config';
 import netlify from '@astrojs/netlify/functions';
-import svelte from '@astrojs/svelte';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
+import sanity from 'astro-sanity';
+import mdx from '@astrojs/mdx';
 
+// https://astro.build/config
 export default defineConfig({
 	output: 'hybrid',
 	adapter: netlify(),
-	integrations: [svelte(), react(), tailwind()],
+	integrations: [
+		react(),
+		sanity({
+			projectId: 'rfglm6rd',
+			dataset: 'production',
+			apiVersion: '2021-10-21',
+			useCdn: false,
+		}),
+		tailwind(),
+		mdx({
+			shikiConfig: {
+				theme: 'rose-pine-moon',
+				wrap: true,
+			},
+		}),
+	],
 	markdown: {
 		smartypants: false,
 		gfm: true,
+	},
+	experimental: {
+		assets: true,
 	},
 });

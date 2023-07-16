@@ -1,7 +1,7 @@
 ---
 import { CollectionEntry, getCollection } from 'astro:content';
 import Layout from '../../layouts/LayoutSerif.astro';
-import Card from '../../components/Card.astro';
+import { Image } from 'astro:assets';
 
 export async function getStaticPaths() {
 	const allBlobs = await getCollection('blobs');
@@ -22,33 +22,36 @@ const { Content } = await blob.render();
 <Layout title={blob.data.title}>
 	<section class='page-content'>
 		<div class='container prose prose-slate lg:prose-xl mt-10 mb-10 max-w-none'>
-			<Card>
-				<a class='btn text-white w-1/3' href='/blobs'>Go Back</a>
-				<h2>{blob.data.title}</h2>
-				<div>
-					Written by <strong>{blob.data.author}</strong> on {
-						new Date(blob.data.date).toLocaleDateString('en-US', {
-							timeZone: 'UTC',
-						})
-					}
-				</div>
-				<Content />
-			</Card>
+			<a class='btn text-white w-1/3' href='/blobs'>Go Back</a>
+			<Image src={blob.data.cover} alt={blob.data.coverAlt} />
+			<h2>{blob.data.title}</h2>
+			<div>
+				Written by <strong>{blob.data.author}</strong> on {
+					new Date(blob.data.date).toLocaleDateString('en-US', {
+						timeZone: 'UTC',
+					})
+				}
+			</div>
+			<Content />
 		</div>
 	</section>
 </Layout>
 
 <style>
-	@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+	/* @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap'); */
 	.page-content {
 		margin: 0 auto;
-		max-width: 90vw;
+		max-width: 100ch;
 	}
 
 	.markdown p {
 		font-family: Lora, serif;
 		font-weight: 400;
 		font-size: 1rem;
+	}
+
+	img {
+		border-radius: 10px;
 	}
 
 	@media (max-width: 500px) {

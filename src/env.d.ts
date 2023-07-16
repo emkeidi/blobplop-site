@@ -1,3 +1,2 @@
 /// <reference path="../.astro/types.d.ts" />
-/// <reference types="astro/client" />
-declare module 'luxon';
+/// <reference types="astro/client-image" />
