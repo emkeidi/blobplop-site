@@ -4,6 +4,10 @@ import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 import sanity from 'astro-sanity';
 import mdx from '@astrojs/mdx';
+import remarkToc from 'remark-toc';
+import remarkDirective from 'remark-directive';
+import remarkCalloutDirectives from '@microflash/remark-callout-directives';
+import { rehypeHeadingIds } from '@astrojs/markdown-remark';
 
 // https://astro.build/config
 export default defineConfig({
@@ -26,6 +30,8 @@ export default defineConfig({
 		}),
 	],
 	markdown: {
+		remarkPlugins: [remarkToc, remarkDirective, remarkCalloutDirectives],
+		rehypePlugins: [rehypeHeadingIds],
 		smartypants: false,
 		gfm: true,
 	},
