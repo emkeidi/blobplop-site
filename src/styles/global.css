@@ -23,7 +23,7 @@ ul {
 }
 
 li {
-    line-height: 1.5;
+    line-height: 1.2;
 }
 
 h1,
@@ -87,8 +87,8 @@ h3 {
 
 @media (max-width: 500px) {
 
-    h1,
-    h2 {
-        text-align: center;
+    .page-content h1,
+    .page-content h2 {
+        font-size: 1.5rem;
     }
 }
