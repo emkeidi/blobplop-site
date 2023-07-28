@@ -16,7 +16,14 @@ const blobCollection = defineCollection({
 				),
 			date: z.coerce.date(),
 			updated: z.date().optional(),
-			author: z.enum(['Matthew Davis', 'MarvinBot']),
+			authors: z.array(
+				z.object({
+					name: z.string(),
+					title: z.string().max(75, 'Please limit the title to 75 characters or less. Say less.'),
+					url: z.string().optional(),
+					image_url: z.string().optional(),
+				}),
+			),
 			cover: image().refine((img) => img.width >= 1080, {
 				message: 'Cover image must be at least 1080 pixels wide.',
 			}),

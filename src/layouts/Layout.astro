@@ -1,7 +1,6 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import '../styles/global.css';
 
 export interface Props {
 	title?: string | number;
@@ -35,26 +34,14 @@ const { title = 'BlobPlop' } = Astro.props as Props;
 		--color-primary: #0f172a;
 		--color-secondary: #6b21a8;
 	}
-	html {
+	/* html {
 		font-family: system-ui, sans-serif;
-		background-color: #f6f6f6;
 		font-size: var(--font-size-base);
 		overflow-x: auto;
 		overflow-y: auto;
-	}
+	} */
 	code {
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
 			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
-
-	body {
-		margin: 0;
-		background-color: white;
-		height: 100%;
-		min-height: 100vh;
-	}
-
-	main {
-		min-height: 100vh;
 	}
 </style>

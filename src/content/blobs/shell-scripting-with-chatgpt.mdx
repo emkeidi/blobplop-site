@@ -4,15 +4,19 @@ slug: gpt-shell-scripting
 draft: false
 description: Learn how to use ChatGPT to quickly generate PowerShell and Bash scripts that will help every developer.
 date: 2023-07-01
-author: Matthew Davis
-cover: '../../assets/richard-horvath-_nWaeTF6qo0-unsplash.jpg'
+authors:
+  - name: Matthew Davis
+    title: Co-creator of BlobPlop
+  - name: Ghost Writer
+    title: Haunting Expert
+cover: '../../assets/monitor-g260a5baac_1280.jpg'
 coverAlt: 'Personal PowerShell terminal of the author that is customized with whimsical emojis.'
 category: Learning
 ---
 
 ## Table of Contents
 
-## Generating Some Leads
+## Start with a list
 
 Recently I am on a mission to better understand my operating system. In my case that is Windows, which is also widely used at work. So, while I am curious to get deeper into MacOS, for now I will be focusing on PowerShell scripts and where better to learn the basics than with a ChatGPT session?
 
@@ -30,7 +34,7 @@ Entering that as a message to ChatGPT yielded a veritable flood of ideas that so
 
 Well, let's start with the ideas.
 
-_ChatGPT Response:_
+:::commend{title="ChatGPT Response"}
 
 As a developer, PowerShell can be a powerful tool to automate tasks and streamline your workflow. Here are some useful PowerShell scripts that can help you in your development work:
 
@@ -70,10 +74,17 @@ As a developer, PowerShell can be a powerful tool to automate tasks and streamli
 - Performance monitoring: Collects and analyzes performance metrics of your system, such as CPU usage, memory consumption, and disk space.
 - Generate reports: Generates reports in various formats (e.g., HTML, PDF) based on collected data or logs.
 
-> Script Tip!
-> Remember to always review and understand any script before running it, especially if it involves system-level operations or interacts with external resources. Adapt these scripts to fit your specific needs and requirements.
+:::
 
-## Generate a System Monitoring Report
+Wow, that's a lot of ideas for such a short prompt!
+
+:::warn{title="Running AI-Generated Scripts"}
+
+Remember to always review and understand any script before running it, especially if it involves system-level operations or interacts with external resources. Adapt these scripts to fit your specific needs and requirements.
+
+:::
+
+## Generate a system monitoring report
 
 You can blame recency bias - the last one stood out to me so that's the first one we will explore.
 
@@ -157,13 +168,13 @@ Start-Process $reportPath
 
 ```
 
-### Deep Dive Into Memory Usage
+### Dive into memory usage
 
 This short script is teaching me a lot. I follow how the variables are being assigned values in the first half of the script, and see them used in the HTML report which is then saved and opened in the default browser.
 
 I have not worked with many of the properties before, so I asked about the `$memoryUsage` line of code.
 
-_ChatGPT Response:_
+:::commend{title="ChatGPT Response"}
 
 Certainly! Let's break down that line of code:
 
@@ -175,11 +186,9 @@ Certainly! Let's break down that line of code:
 
 By assigning the result to the `$memoryUsage` variable, we retrieve the calculated value (in percentage) of the memory consumption and store it for further use in the script.
 
----
+:::
 
-OK, now I have some great jumping off points to continue learning later. I know what to look up in the PowerShell documentation to learn more about certain properties and cmdlets.
-
-## Save The Date
+### Save the date
 
 The base version of the report is great. One issue is that each time the script is run, the file will be overwritten. To fix this, I adjust the script to construct a file path that includes the current time. This will generate unique files as long as they are created at least one second apart. That's close enough for me!
 
@@ -203,7 +212,9 @@ With the updates to the script to include the current date and time in the file 
 
 This script is more of a learning tool to identify what to learn next.
 
-## Convert To Bash
+---
+
+### Convert to bash
 
 Seeing ChatGPT whip this script out in seconds flat has been entertaining to say the least. Since I have a MacBook Air for personal use, I wanted to play some more with this simple script.
 
@@ -321,7 +332,7 @@ disk_usage=$(df -h /System/Volumes/Data | tail -1 | awk '{print $5}' | tr -d '%'
 # --snip--
 ```
 
-## Shell Scripting Summation
+## Shell scripting summation
 
 Generating these scripts with the help of ChatGPT was a lot of fun. I'd like to think I learned a few things along the way. I still have tons to learn about operating systems and scripting languages.
 

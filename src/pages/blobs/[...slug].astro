@@ -22,16 +22,28 @@ const { Content } = await blob.render();
 
 <Layout title={blob.data.title}>
 	<section class='page-content'>
-		<div class='container prose prose-slate lg:prose-base mt-10 mb-10 max-w-none'>
-			<a class='btn text-white w-1/3' href='/blobs'>Go Back</a>
+		<div class='container prose prose-stone lg:prose-base mt-10 mb-10 max-w-none dark:prose-invert'>
 			<Image src={blob.data.cover} alt={blob.data.coverAlt} />
+			<a class='btn btn-info btn-outline' href='/blobs'>Go Back</a>
 			<h2>{blob.data.title}</h2>
-			<div>
-				Written by <strong>{blob.data.author}</strong> on {
-					new Date(blob.data.date).toLocaleDateString('en-US', {
-						timeZone: 'UTC',
-					})
-				}
+			<div class='blob-desc'>
+				<p class='authors'>
+					{
+						blob.data.authors.length > 1
+							? blob.data.authors.map((auth) => `${auth.name} :: ${auth.title}`).join(`, `)
+							: `${blob.data.authors[0].name} :: ${blob.data.authors[0].title}`
+					}
+				</p>
+				<p class='publish-date'>
+					<span>
+						{
+							'Date: ' +
+								new Date(blob.data.date).toLocaleDateString('en-US', {
+									timeZone: 'UTC',
+								})
+						}</span
+					>
+				</p>
 			</div>
 			<Content />
 		</div>
@@ -40,9 +52,10 @@ const { Content } = await blob.render();
 
 <style>
 	/* @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap'); */
+
 	.page-content {
 		margin: 0 auto;
-		max-width: 100ch;
+		max-width: 70ch;
 	}
 	/*
 	.markdown p {
@@ -55,9 +68,9 @@ const { Content } = await blob.render();
 		border-radius: 10px;
 	}
 
-	@media (max-width: 500px) {
+	@media (max-width: 800px) {
 		.page-content {
-			min-width: 100%;
+			max-width: 90%;
 			margin: 0 auto;
 		}
 	}

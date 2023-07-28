@@ -6,7 +6,7 @@ import Showcase from '../components/Showcase.astro';
 
 <Layout>
 	<Showcase />
-	<main>
+	<main class='prose lg:prose-xl'>
 		<h1>All roads lead to <span class='text-gradient'>Blob</span></h1>
 		<p class='instructions'>🫒🌺💚🧁</p>
 		<ul role='list' class='link-card-grid'>
@@ -35,7 +35,6 @@ import Showcase from '../components/Showcase.astro';
 		font-size: 3rem;
 		font-weight: 800;
 		margin: 0;
-		color: var(--color-primary);
 		text-align: center;
 	}
 	.text-gradient {
@@ -49,7 +48,6 @@ import Showcase from '../components/Showcase.astro';
 		line-height: 1.6;
 		margin: 1rem 0;
 		border: 1px solid rgba(var(--accent), 25%);
-		background-color: white;
 		padding: 1rem;
 		border-radius: 0.4rem;
 		text-align: center;

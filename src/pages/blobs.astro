@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import Showcase from '../components/Showcase.astro';
-import Card from '../components/Card.astro';
 import { Image } from 'astro:assets';
 
 const blobs = await getCollection('blobs', ({ data }) => {
@@ -19,42 +18,42 @@ const orderedBlobs = blobs.sort(function (a, b) {
 ---
 
 <Layout title='Blobs'>
-	<Showcase heading='Free Blobs' />
+	<Showcase heading='Blobs' />
 	<main>
-		<section class='page-content'>
-			<div class='container'>
-				{
-					orderedBlobs.map((blob) => (
-						<Card>
-							<Image src={blob.data.cover} alt={blob.data.coverAlt} />
-							<h3>{blob.data.title}</h3>
-							<div>
-								Written by <strong>{blob.data.author} </strong> on{' '}
-								{new Date(blob.data.date).toLocaleDateString('en-US', {
-									timeZone: 'UTC',
-								})}
+		<div class='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 m-2 max-w-fit'>
+			{
+				orderedBlobs.map((blob) => (
+					<div class='col-span-1'>
+						<div class='card card-bordered bg-neutral min-h-full shadow-xl '>
+							<figure>
+								<Image src={blob.data.cover} alt={blob.data.coverAlt} />
+							</figure>
+							<div class='card-body'>
+								<h2 class='card-title'>{blob.data.title}</h2>
+								<p>
+									{blob.data.authors.length > 1
+										? blob.data.authors.map((auth) => `${auth.name} :: ${auth.title}`).join(`, `)
+										: `${blob.data.authors[0].name} :: ${blob.data.authors[0].title}`}
+								</p>
+								<span class='publish-date'>
+									{'Date: ' +
+										new Date(blob.data.date).toLocaleDateString('en-US', {
+											timeZone: 'UTC',
+										})}
+								</span>
+								<p class='mb-3'>{blob.data.description}</p>
+								<div class='card-actions justify-end'>
+									<a class='btn btn-info btn-outline' href={`/blobs/${blob.slug}`}>
+										Read More
+									</a>
+								</div>
 							</div>
-							<p>{blob.data.description}</p>
-							<a class='btn' href={`/blobs/${blob.slug}`}>
-								Read More
-							</a>
-						</Card>
-					))
-				}
-			</div>
-		</section>
+						</div>
+					</div>
+				))
+			}
+		</div>
 	</main>
-
-	<style>
-		main {
-			max-width: 75ch;
-			margin: 0 auto;
-			padding: 1.5rem;
-			word-wrap: normal;
-		}
-
-		img {
-			border-radius: 10px;
-		}
-	</style>
 </Layout>
+
+<style></style>
