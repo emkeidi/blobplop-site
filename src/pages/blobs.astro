@@ -20,20 +20,24 @@ const orderedBlobs = blobs.sort(function (a, b) {
 <Layout title='Blobs'>
 	<Showcase heading='Blobs' />
 	<main>
-		<div class='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 m-2 max-w-fit'>
+		<div class='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 m-2 lg:max-w-6xl mx-auto'>
 			{
 				orderedBlobs.map((blob) => (
 					<div class='col-span-1'>
 						<div class='card card-bordered bg-base-300 hover:bg-primary-focus hover:glass hover:text-white min-h-full shadow-xl ease-in-out duration-300'>
 							<figure>
-								<Image src={blob.data.cover} alt={blob.data.coverAlt} />
+								<Image
+									class='w-full aspect-[4/3] object-cover'
+									src={blob.data.cover}
+									alt={blob.data.coverAlt}
+								/>
 							</figure>
 							<div class='card-body'>
 								<h2 class='card-title'>{blob.data.title}</h2>
 								<p>
 									{blob.data.authors.length > 1
-										? blob.data.authors.map((auth) => `${auth.name} :: ${auth.title}`).join(`, `)
-										: `${blob.data.authors[0].name} :: ${blob.data.authors[0].title}`}
+										? blob.data.authors.map((auth) => `${auth.name}`).join(`, `)
+										: `${blob.data.authors[0].name}`}
 								</p>
 								<span class='publish-date'>
 									{'Date: ' +
