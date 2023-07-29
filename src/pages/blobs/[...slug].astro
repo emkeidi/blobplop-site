@@ -22,8 +22,8 @@ const { Content } = await blob.render();
 
 <Layout title={blob.data.title}>
 	<section class='page-content'>
-		<div class='container prose prose-stone lg:prose-base mt-10 mb-10 max-w-none dark:prose-invert'>
-			<Image class='drop-shadow-md m-2' src={blob.data.cover} alt={blob.data.coverAlt} />
+		<div class='container prose prose-stone lg:prose-base mt-10 mb-10 dark:prose-invert'>
+			<Image class='drop-shadow-md mx-auto' src={blob.data.cover} alt={blob.data.coverAlt} />
 			<a class='btn btn-info btn-outline' href='/blobs'>Go Back</a>
 			<h2>{blob.data.title}</h2>
 			<div class='blob-desc'>
