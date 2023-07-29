@@ -1,7 +1,6 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { Sprite } from 'astro-icon';
 
 export interface Props {
 	title?: string | number;
@@ -32,11 +31,9 @@ const { title = 'BlobPlop' } = Astro.props as Props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<Sprite.Provider>
-			<Header />
-			<slot />
-			<Footer />
-		</Sprite.Provider>
+		<Header />
+		<slot />
+		<Footer />
 	</body>
 </html>
 <style is:global>
