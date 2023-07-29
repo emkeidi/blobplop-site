@@ -15,21 +15,31 @@ import { Image } from 'astro:assets';
 		<h1>All roads lead to <span class='text-gradient'>Blob</span></h1>
 		<div class='container mx-auto'>
 			<div class='flex justify-center'><p>Themes:</p></div>
-
-			<div class='flex justify-evenly'>
-				<button class='btn btn-primary' data-set-theme='blobby' data-act-class='ACTIVECLASS'
-					>Blobby</button
-				>
-				<button class='btn btn-primary' data-set-theme='emerald' data-act-class='ACTIVECLASS'
-					>Emerald</button
-				>
-				<button class='btn btn-primary' data-set-theme='coffee' data-act-class='ACTIVECLASS'
-					>Coffee</button
-				>
-
-				<button class='btn btn-primary' data-set-theme='retro' data-act-class='ACTIVECLASS'
-					>Retro</button
-				>
+			<div class='grid sm:grid-cols-2 md:grid-cols-4 gap-4'>
+				<div class='mx-auto'>
+					<button
+						class='btn btn-primary btn-sm'
+						data-set-theme='blobby'
+						data-act-class='ACTIVECLASS'>Blobby</button
+					>
+				</div>
+				<div class='mx-auto'>
+					<button
+						class='btn btn-secondary btn-sm'
+						data-set-theme='emerald'
+						data-act-class='ACTIVECLASS'>Emerald</button
+					>
+				</div>
+				<div class='mx-auto'>
+					<button class='btn btn-accent btn-sm' data-set-theme='coffee' data-act-class='ACTIVECLASS'
+						>Coffee</button
+					>
+				</div>
+				<div class='mx-auto'>
+					<button class='btn btn-success btn-sm' data-set-theme='retro' data-act-class='ACTIVECLASS'
+						>Retro</button
+					>
+				</div>
 			</div>
 		</div>
 		<ul role='list' class='link-card-grid'>
@@ -47,48 +57,49 @@ import { Image } from 'astro:assets';
 			<ListCard href='/about/' title='About' body='Who makes these blobs?' />
 		</ul>
 	</main>
+
+	<style>
+		main {
+			margin: auto;
+			padding: 1.5rem;
+		}
+		h1 {
+			font-size: 3rem;
+			font-weight: 800;
+			margin: 0;
+			text-align: center;
+		}
+		.text-gradient {
+			background-image: var(--accent-gradient);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-size: 400%;
+			background-position: 0%;
+		}
+		.instructions {
+			line-height: 1.6;
+			margin: 1rem 0;
+			border: 1px solid rgba(var(--accent), 25%);
+			padding: 1rem;
+			border-radius: 0.4rem;
+			text-align: center;
+		}
+		.instructions code {
+			font-size: 0.875em;
+			font-weight: bold;
+			background: rgba(var(--accent), 12%);
+			color: rgb(var(--accent));
+			border-radius: 4px;
+			padding: 0.3em 0.45em;
+		}
+		.instructions strong {
+			color: rgb(var(--accent));
+		}
+		.link-card-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+			gap: 1rem;
+			padding: 0;
+		}
+	</style>
 </Layout>
-<style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-		text-align: center;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
-		padding: 1rem;
-		border-radius: 0.4rem;
-		text-align: center;
-	}
-	.instructions code {
-		font-size: 0.875em;
-		font-weight: bold;
-		background: rgba(var(--accent), 12%);
-		color: rgb(var(--accent));
-		border-radius: 4px;
-		padding: 0.3em 0.45em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
-</style>

@@ -11,6 +11,18 @@ const { title = 'BlobPlop' } = Astro.props as Props;
 <!DOCTYPE html>
 <html lang='en'>
 	<head>
+		<script is:inline>
+			// ☝️ This script prevent the FART effect.
+			if (localStorage.getItem('theme') === null) {
+				document.documentElement.setAttribute('data-theme', 'light');
+			} else document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
+			// "theme" LocalStorage value is set by the package to remember user preference.
+			// The value is checked and applyed before rendering anything.
+		</script>
+		<script>
+			import { themeChange } from 'theme-change';
+			themeChange();
+		</script>
 		<meta charset='UTF-8' />
 		<meta name='viewport' content='width=device-width' />
 		<link rel='icon' type='image/svg+xml' href='/alien.png' />
@@ -30,12 +42,10 @@ const { title = 'BlobPlop' } = Astro.props as Props;
 		--font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
 		--accent: 124, 58, 237;
 		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
-		--color-primary: #0f172a;
 		--color-secondary: #6b21a8;
 	}
 	html {
 		font-family: system-ui, sans-serif;
-		background-color: #f6f6f6;
 		font-size: var(--font-size-base);
 		overflow-x: auto;
 		overflow-y: auto;

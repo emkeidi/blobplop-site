@@ -11,14 +11,19 @@ import { Image } from 'astro:assets';
 			<a class='btn btn-ghost normal-case text-xl' href='/'>BlobPlop</a>
 		</div>
 		<div class='flex-none'>
-			<ul class='menu menu-horizontal px-1'>
-				<li><a>Link</a></li>
+			<ul class='menu menu-horizontal px-2 mx-2'>
+				<select data-choose-theme>
+					<option value='blobby'>Blobby</option>
+					<option value='emerald'>Emerald</option>
+					<option value='coffee'>Coffee</option>
+					<option value='retro'>Retro</option>
+				</select>
 				<li>
 					<details>
-						<summary>Parent</summary>
+						<summary>Menu</summary>
 						<ul class='p-2 bg-base-100'>
 							<li><a href='/blobs/'>Blobs</a></li>
-							<li><a>Link 2</a></li>
+							<li><a href='/nasa/'>Space</a></li>
 						</ul>
 					</details>
 				</li>
