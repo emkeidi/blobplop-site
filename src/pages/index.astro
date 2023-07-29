@@ -1,13 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ListCard from '../components/ListCard.astro';
-import Icon from 'astro-icon';
+import blobSVG from '../icons/blob.svg';
+import { Image } from 'astro:assets';
 ---
 
 <Layout>
 	<main class='prose lg:prose-xl'>
 		<div class='container mx-auto max-w-md mb-4'>
-			<Icon name='blob' />
+			<div class='flex justify-center'>
+				<Image src={blobSVG} alt='blob' height='300' />
+			</div>
 		</div>
 		<h1>All roads lead to <span class='text-gradient'>Blob</span></h1>
 		<div class='container mx-auto'>
