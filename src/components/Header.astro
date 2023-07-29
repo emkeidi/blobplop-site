@@ -1,38 +1,40 @@
 ---
-import logo from '../images/alien.png';
+import logo from '/blob-favicon.svg';
 import { Image } from 'astro:assets';
 ---
 
-<!-- TODO make me static!  -->
 <header class='header'>
-	<div class='container'>
-		<div class='logo'>
-			<span class='logo'>
-				<a href='/'>
-					<Image src={logo} width={70} alt='logo' />
-				</a>
-			</span>
+	<div
+		class='navbar bg-base-100 backdrop-filter backdrop-blur-lg bg-opacity-30 border-b border-gray-200'
+	>
+		<div class='flex-1'>
+			<a class='btn btn-ghost normal-case text-xl' href='/'>BlobPlop</a>
 		</div>
-		<nav>
-			<ul>
-				<li><a href='/'>Home</a></li>
-				<li><a href='/about'>About</a></li>
-				<li><a href='/blobs'>Blobs</a></li>
+		<div class='flex-none'>
+			<ul class='menu menu-horizontal px-1'>
+				<li><a>Link</a></li>
+				<li>
+					<details>
+						<summary>Parent</summary>
+						<ul class='p-2 bg-base-100'>
+							<li><a href='/blobs/'>Blobs</a></li>
+							<li><a>Link 2</a></li>
+						</ul>
+					</details>
+				</li>
 			</ul>
-		</nav>
+		</div>
 	</div>
 </header>
 
 <style>
 	.header {
-		height: 120px;
-		background: #0f172a;
 		position: sticky;
 		top: 0;
 		z-index: 10;
 		filter: alp;
 	}
-
+	/*
 	.header .container {
 		height: 100%;
 		display: flex;
@@ -53,5 +55,5 @@ import { Image } from 'astro:assets';
 	}
 	.header nav ul li a {
 		color: #fff;
-	}
+	} */
 </style>

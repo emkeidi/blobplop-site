@@ -2,13 +2,34 @@
 import Layout from '../layouts/Layout.astro';
 import ListCard from '../components/ListCard.astro';
 import Showcase from '../components/Showcase.astro';
+import Icon from 'astro-icon';
 ---
 
 <Layout>
-	<Showcase />
 	<main class='prose lg:prose-xl'>
+		<div class='container mx-auto max-w-md mb-4'>
+			<Icon name='blob' />
+		</div>
 		<h1>All roads lead to <span class='text-gradient'>Blob</span></h1>
-		<p class='instructions'>🫒🌺💚🧁</p>
+		<div class='container mx-auto'>
+			<div class='flex justify-center'><p>Themes:</p></div>
+
+			<div class='flex justify-evenly'>
+				<button class='btn btn-primary' data-set-theme='blobby' data-act-class='ACTIVECLASS'
+					>Blobby</button
+				>
+				<button class='btn btn-primary' data-set-theme='emerald' data-act-class='ACTIVECLASS'
+					>Emerald</button
+				>
+				<button class='btn btn-primary' data-set-theme='coffee' data-act-class='ACTIVECLASS'
+					>Coffee</button
+				>
+
+				<button class='btn btn-primary' data-set-theme='retro' data-act-class='ACTIVECLASS'
+					>Retro</button
+				>
+			</div>
+		</div>
 		<ul role='list' class='link-card-grid'>
 			<ListCard href='/blobs/' title='Blobs 📖' body='A blog about learning and random topics.' />
 			<ListCard
@@ -16,12 +37,12 @@ import Showcase from '../components/Showcase.astro';
 				title='Nasa API 🔭🌚'
 				body='Astronomy Picture of the Day selections.'
 			/>
-			<ListCard href='/about/' title='About' body='Who makes these blobs?' />
 			<ListCard
 				href='https://ratracerealty.vercel.app'
 				title='Rat Race Realty 🧀🐀'
 				body='Save up some cheese to snag a lair.'
 			/>
+			<ListCard href='/about/' title='About' body='Who makes these blobs?' />
 		</ul>
 	</main>
 </Layout>
@@ -29,7 +50,6 @@ import Showcase from '../components/Showcase.astro';
 	main {
 		margin: auto;
 		padding: 1.5rem;
-		max-width: 60ch;
 	}
 	h1 {
 		font-size: 3rem;
