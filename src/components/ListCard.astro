@@ -8,13 +8,13 @@ interface Props {
 const { href, title, body } = Astro.props;
 ---
 
-<li class='link-card bg-base-200'>
+<li class='link-card bg-primary'>
 	<a href={href}>
-		<h2>
+		<h2 class='text-primary-content'>
 			{title}
 			<span>&rarr;</span>
 		</h2>
-		<p>
+		<p class='text-primary-content'>
 			{body}
 		</p>
 	</a>
@@ -37,7 +37,6 @@ const { href, title, body } = Astro.props;
 		line-height: 1.4;
 		padding: 1rem 1.3rem;
 		border-radius: 0.35rem;
-		color: #111;
 		opacity: 0.8;
 	}
 	h2 {
@@ -48,7 +47,6 @@ const { href, title, body } = Astro.props;
 	p {
 		margin-top: 0.5rem;
 		margin-bottom: 0;
-		color: #444;
 	}
 	.link-card:is(:hover, :focus-within) {
 		background-position: 0;

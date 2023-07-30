@@ -16,10 +16,10 @@ module.exports = {
 			{
 				blobby: {
 					primary: '#7ee7abff',
-					secondary: '#3aba94ff',
+					secondary: '#f0abfc',
 					accent: '#d4b966ff',
-					neutral: '#3d312bff',
-					'base-100': '#0a0808ff',
+					neutral: '#57534e',
+					'base-100': '#1f2937',
 					info: '#9c5c2fff',
 					success: '#9b4da8ff',
 					warning: '#fbbd23',
@@ -28,7 +28,7 @@ module.exports = {
 			},
 			'retro',
 			'coffee',
-			'emerald',
+			'fantasy',
 		],
 	},
 	darkmode: 'class',
