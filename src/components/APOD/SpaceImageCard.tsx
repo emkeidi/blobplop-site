@@ -9,8 +9,10 @@ export default function SpaceImageCard({ image }: SpaceImageCardProps) {
 	if (image.media_type === 'image') {
 		return (
 			<div className='col'>
-				<div className='card shadow text-bg-dark mb-3'>
-					<img src={image.url} alt={image.title} className='card-img-top' />
+				<div className='card shadow-xl bg-base-200  my-6'>
+					<figure>
+						<img src={image.url} alt={image.title} />
+					</figure>
 					<div className='card-body'>
 						<details>
 							<summary>

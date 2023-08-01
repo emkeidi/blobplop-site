@@ -31,7 +31,12 @@ export default defineConfig({
 		}),
 	],
 	markdown: {
-		remarkPlugins: [remarkToc, remarkDirective, remarkCalloutDirectives, remarkReadingTime],
+		remarkPlugins: [
+			[remarkToc, { tight: true, ordered: true }],
+			remarkDirective,
+			remarkCalloutDirectives,
+			remarkReadingTime,
+		],
 		rehypePlugins: [rehypeHeadingIds],
 		smartypants: false,
 		gfm: true,

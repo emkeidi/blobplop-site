@@ -21,33 +21,35 @@ const { Content } = await blob.render();
 ---
 
 <Layout title={blob.data.title}>
-	<section class='page-content'>
-		<div class='container prose lg:prose-base prose-slate prose-li:text-white mt-8 mb-8'>
-			<Image class='drop-shadow-md mx-auto' src={blob.data.cover} alt={blob.data.coverAlt} />
-			<a class='btn btn-info btn-outline' href='/blobs'>Go Back</a>
-			<h2>{blob.data.title}</h2>
-			<div class='blob-desc'>
-				<p class='authors'>
-					{
-						blob.data.authors.length > 1
-							? blob.data.authors.map((auth) => `${auth.name} :: ${auth.title}`).join(`, `)
-							: `${blob.data.authors[0].name} :: ${blob.data.authors[0].title}`
-					}
-				</p>
-				<p class='publish-date'>
-					<span>
+	<main>
+		<section class='page-content'>
+			<div class='container prose lg:prose-base prose-slate prose-li:text-white mt-8 mb-8'>
+				<Image class='drop-shadow-md mx-auto' src={blob.data.cover} alt={blob.data.coverAlt} />
+				<a class='btn btn-info btn-outline' href='/blobs'>Go Back</a>
+				<h2>{blob.data.title}</h2>
+				<div class='blob-desc'>
+					<p class='authors'>
 						{
-							'Date: ' +
-								new Date(blob.data.date).toLocaleDateString('en-US', {
-									timeZone: 'UTC',
-								})
-						}</span
-					>
-				</p>
+							blob.data.authors.length > 1
+								? blob.data.authors.map((auth) => `${auth.name} :: ${auth.title}`).join(`, `)
+								: `${blob.data.authors[0].name} :: ${blob.data.authors[0].title}`
+						}
+					</p>
+					<p class='publish-date'>
+						<span>
+							{
+								'Date: ' +
+									new Date(blob.data.date).toLocaleDateString('en-US', {
+										timeZone: 'UTC',
+									})
+							}</span
+						>
+					</p>
+				</div>
+				<Content />
 			</div>
-			<Content />
-		</div>
-	</section>
+		</section>
+	</main>
 </Layout>
 
 <style>
