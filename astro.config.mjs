@@ -40,8 +40,6 @@ export default defineConfig({
 		rehypePlugins: [rehypeHeadingIds],
 		smartypants: false,
 		gfm: true,
-	},
-	experimental: {
-		assets: true,
-	},
+    },
+    scopedStyleStrategy: "where"
 });

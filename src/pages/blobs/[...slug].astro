@@ -24,11 +24,11 @@ const { Content } = await blob.render();
 	<main>
 		<section class='page-content'>
 			<div class='container prose lg:prose-base prose-slate prose-li:text-white mt-8 mb-8'>
-				<Image class='drop-shadow-md mx-auto' src={blob.data.cover} alt={blob.data.coverAlt} />
+				<Image class='drop-shadow-md mx-auto' src={blob.data.cover} alt={blob.data.coverAlt}  transition:name={blob.data.cover.src}/>
 				<a class='btn btn-info btn-outline' href='/blobs'>Go Back</a>
-				<h2>{blob.data.title}</h2>
+				<h2 transition:name={blob.data.title}>{blob.data.title}</h2>
 				<div class='blob-desc'>
-					<p class='authors'>
+					<p class='authors' transition:name={`meta-${blob.slug}`}>
 						{
 							blob.data.authors.length > 1
 								? blob.data.authors.map((auth) => `${auth.name} :: ${auth.title}`).join(`, `)
