@@ -11,34 +11,35 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"@astrojs/mdx": "^1.0.0",
-		"@astrojs/netlify": "3.0.1",
-		"@astrojs/react": "^3.0.0",
+		"@astrojs/mdx": "^1.1.5",
+		"@astrojs/netlify": "^3.0.4",
+		"@astrojs/node": "^6.0.4",
+		"@astrojs/react": "^3.0.5",
 		"@astrojs/tailwind": "^5.0.2",
 		"@microflash/remark-callout-directives": "^1.6.0",
 		"@types/node": "^18.11.18",
-		"@types/react": "^18.0.27",
-		"@types/react-dom": "^18.0.10",
+		"@types/react": "^18.2.37",
+		"@types/react-dom": "^18.2.15",
 		"@types/react-router-dom": "^5.3.3",
-		"astro": "^3.3.0",
+		"astro": "^3.5.5",
 		"astro-icon": "^1.0.0-next.2",
 		"astro-sanity": "^1.1.7",
-		"autoprefixer": "^10.4.14",
-		"luxon": "^3.3.0",
+		"autoprefixer": "^10.4.16",
+		"luxon": "^3.4.4",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
-		"react-router-dom": "^6.6.1",
+		"react-router-dom": "^6.19.0",
 		"react-scripts": "^5.0.1",
 		"remark-directive": "^2.0.1",
 		"remark-reading-time": "^2.0.1",
 		"remark-toc": "^8.0.1",
-		"tailwindcss": "^3.3.3"
+		"tailwindcss": "^3.3.5"
 	},
 	"devDependencies": {
-		"@tailwindcss/typography": "^0.5.9",
-		"@types/luxon": "^3.3.0",
+		"@tailwindcss/typography": "^0.5.10",
+		"@types/luxon": "^3.3.4",
 		"daisyui": "^3.6.5",
-		"prettier": "^3.0.3",
-		"prettier-plugin-astro": "^0.12.0"
+		"prettier": "^3.1.0",
+		"prettier-plugin-astro": "^0.12.2"
 	}
 }

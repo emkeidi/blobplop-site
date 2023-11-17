@@ -12,7 +12,7 @@ import { rehypeHeadingIds } from '@astrojs/markdown-remark';
 
 // https://astro.build/config
 export default defineConfig({
-	output: 'hybrid',
+	output: 'server',
 	adapter: netlify(),
 	integrations: [
 		react(),
@@ -40,6 +40,6 @@ export default defineConfig({
 		rehypePlugins: [rehypeHeadingIds],
 		smartypants: false,
 		gfm: true,
-    },
-    scopedStyleStrategy: "where"
+	},
+	scopedStyleStrategy: 'where',
 });

@@ -1,8 +1,10 @@
 ---
-import { CollectionEntry, getCollection } from 'astro:content';
+import { type CollectionEntry, getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import '../../styles/microflash.css';
+
+export const prerender = true
 
 export async function getStaticPaths() {
 	const allBlobs = await getCollection('blobs');
