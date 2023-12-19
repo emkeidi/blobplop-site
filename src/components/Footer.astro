@@ -1,11 +1,15 @@
 ---
 import blobSVG from '../icons/blob.svg';
 import { Image } from 'astro:assets';
+
+const year = new Date().getFullYear();
+
+
 ---
 
 <footer class='footer footer-center p-4 bg-base-300 text-base-content'>
 	<div class='items-center grid-flow-col'>
 		<Image src={blobSVG} alt='blob' height='30' />
-		<p>Copyright © 2023 - All rights reserved by BlobPlop</p>
+		<p>Copyright © {year} - All rights reserved by BlobPlop</p>
 	</div>
 </footer>
