@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import ListCard from '../components/ListCard.astro';
 import blobSVG from '../icons/blob.svg';
 import { Image } from 'astro:assets';
+import RandomTagline from '../components/RandomTagline';
 ---
 
 <Layout>
@@ -12,7 +13,7 @@ import { Image } from 'astro:assets';
 				<Image src={blobSVG} alt='blob' height='300' />
 			</div>
 		</div>
-		<h1>All roads lead to <span class='text-gradient'>Blob</span></h1>
+        <RandomTagline client:load />
 
 		<ul role='list' class='link-card-grid'>
 			<ListCard href='/blobs/' title='Blobs 📖' body='A blog about learning and random topics.' />
