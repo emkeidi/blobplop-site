@@ -3,14 +3,15 @@ interface Props {
 	title: string;
 	body: string;
 	href?: string;
+    disabled?: boolean;
 }
 
-const { href, title, body } = Astro.props;
+const { href, title, body, disabled } = Astro.props;
 ---
 
-<li class='link-card bg-primary hover:bg-primary-focus'>
+<li class:list={['link-card bg-primary hover:bg-primary-focus', {disabled}]}>
 	<a href={href}>
-		<h2 class='text-primary-content '>
+		<h2 class='text-primary-content'>
 			{title}
 			<span>&rarr;</span>
 		</h2>
@@ -49,5 +50,10 @@ const { href, title, body } = Astro.props;
 	.link-card:is(:hover, :focus-within) {
 		background-position: 0;
 	}
+
+    .disabled {
+        opacity: 0.5;
+    }
+
 
 </style>
