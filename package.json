@@ -40,7 +40,7 @@
 	"devDependencies": {
 		"@tailwindcss/typography": "^0.5.10",
 		"@types/luxon": "^3.3.7",
-		"daisyui": "^4.4.20",
+		"daisyui": "^4.12.23",
 		"prettier": "^3.1.1",
 		"prettier-plugin-astro": "^0.12.2"
 	}
