@@ -14,12 +14,60 @@
 }
 
 .text-gradient {
+    --animation-duration: 10s;
     background: linear-gradient(to right, #ff00ff, #00ff00, #00ffff, #ff00ff);
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: textGradientAnimation 10s linear infinite;
+    animation: textGradientAnimation var(--animation-duration) linear infinite;
     font-weight: bolder;
+}
+
+.text-gradient:hover {
+    --animation-duration: 5s;
+    text-shadow:
+        0 0 1px rgba(255, 0, 255, 0.2),
+        0 0 2px rgba(255, 0, 255, 0.1),
+        0 0 8px rgba(0, 255, 0, 0.1),
+        0 0 12px rgba(0, 255, 255, 0.1);
+}
+
+.text-gradient-2 {
+    --animation-duration: 10s;
+    background: linear-gradient(to right, #ff7f50, #ff4500, #ff6347, #ff7f50);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textGradientAnimation var(--animation-duration) linear infinite;
+    font-weight: bolder;
+}
+
+.text-gradient-2:hover {
+    --animation-duration: 5s;
+    text-shadow:
+        0 0 1px rgba(255, 127, 80, 0.2),
+        0 0 2px rgba(255, 127, 80, 0.1),
+        0 0 8px rgba(255, 69, 0, 0.1),
+        0 0 12px rgba(255, 99, 71, 0.1);
+}
+
+.text-gradient-3 {
+    --animation-duration: 10s;
+    background: linear-gradient(to right, #0000ff, #00bfff, #1e90ff, #0000ff);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textGradientAnimation var(--animation-duration) linear infinite;
+    font-weight: bolder;
+}
+
+.text-gradient-3:hover {
+    --animation-duration: 5s;
+    text-shadow:
+        0 0 1px rgba(0, 0, 255, 0.2),
+        0 0 2px rgba(0, 0, 255, 0.1),
+        0 0 8px rgba(0, 191, 255, 0.1),
+        0 0 12px rgba(30, 144, 255, 0.1);
 }
 
 /* END: Text Gradient Animation */

@@ -27,12 +27,14 @@ const orderedBlobs = blobs.sort(function (a, b) {
 				orderedBlobs.map((blob) => (
 					<div class='group card card-bordered bg-base-500 hover:bg-neutral hover:glass hover:text-white max-w-md min-h-full mx-auto shadow-xl ease-in-out duration-300'>
 						<figure>
-							<Image
-								class='w-full aspect-[4/3] object-cover opacity-100 group-hover:opacity-50 ease-in-out duration-300'
-								src={blob.data.cover}
-								alt={blob.data.coverAlt}
-                                transition:name={blob.data.cover.src}
-							/>
+							<a href={`/blobs/${blob.slug}`}>
+								<Image
+									class='w-full aspect-[4/3] object-cover opacity-100 group-hover:opacity-50 ease-in-out duration-300'
+									src={blob.data.cover}
+									alt={blob.data.coverAlt}
+                                    transition:name={blob.data.cover.src}
+								/>
+							</a>
 						</figure>
 						<div class='card-body' transition:name={`meta-${blob.slug}`}>
 							<h2 class='card-title'>{blob.data.title}</h2>
